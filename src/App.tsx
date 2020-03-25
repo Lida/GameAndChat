@@ -16,12 +16,12 @@ const confOptions = {
   openBridgeChannel: true
 };
 
-let connection = null;
+let connection : JitsiMeetJS.JitsiConnection = null;
 let isJoined = false;
-let room = null;
+let room : any = null;
 
-let localTracks = [];
-const remoteTracks = {};
+let localTracks : any = [];
+const remoteTracks : any = {};
 
 /**
  * Handles local tracks.
