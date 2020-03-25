@@ -30,9 +30,10 @@ export default function App() {
       </a-image>
     <a-box dynamic-body position="-1 0.5 -3" rotation="44 44 0" color="#4CC3D9">
     </a-box>
-    <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E">
+    <a-sphere dynamic-body position="0 1.25 -5" radius="1.25" color="#EF2D5E">
     </a-sphere>
     <a-cylinder
+      dynamic-body 
       position="1 0.75 -3"
       radius="0.5"
       height="1.5"
