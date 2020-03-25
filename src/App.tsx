@@ -261,8 +261,8 @@ export default function App() {
       <a-assets>
         <img id="board" src="https://raw.githubusercontent.com/Lida/GameAndChat/master/public/Pandemic/images/${boardName}" />
       </a-assets>
-    <a-entity id="rig" position="0 0 0" rotation="-65 0 0">
-      <a-camera fov="50"></a-camera>
+    <a-entity id="rig" movement-controls>
+      <a-camera fov="50" ></a-camera>
     </a-entity>
     <a-image
       src= "#board"
@@ -292,7 +292,7 @@ export default function App() {
   </a-scene>
     `;
     document.getElementById("aframe").innerHTML = content;
-  });
+  }, []);
   return (
     <div className="App">
       <div id="aframe" />
