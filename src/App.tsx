@@ -3,7 +3,6 @@ import "./styles.css";
 import "aframe";
 import "aframe-physics-system";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "jquery";
 import Jitis from "./Jitis";
 
 export default function App() {

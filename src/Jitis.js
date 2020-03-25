@@ -1,7 +1,4 @@
-const script = document.createElement("script");
-script.src = "./lib-jitsi-meet.min.js";
-document.head.appendChild(script);
-
+import JitsiMeetJS from "./lib-jitsi-meet.min.js";
 const confOptions = {
   openBridgeChannel: true
 };
@@ -38,13 +35,21 @@ function onLocalTracks(tracks) {
         console.log(`track audio output device was changed to ${deviceId}`)
     );
     if (localTracks[i].getType() === "video") {
-      $("body").append(`<video playsinline autoplay id='localVideo${i}' />`);
-      localTracks[i].attach($(`#localVideo${i}`)[0]);
+      document
+        .getElementById("root")
+        .insertAdjacentHTML(
+          "beforeend",
+          `<video playsinline autoplay id='localVideo${i}' />`
+        );
+      localTracks[i].attach(document.getElementById(`localVideo${i}`));
     } else {
-      $("body").append(
-        `<audio autoplay='1' muted='true' id='localAudio${i}' />`
-      );
-      localTracks[i].attach($(`#localAudio${i}`)[0]);
+      document
+        .getElementById("root")
+        .insertAdjacentHTML(
+          "beforeend",
+          `<audio autoplay='1' muted='true' id='localAudio${i}' />`
+        );
+      localTracks[i].attach(document.getElementById(`localAudio${i}`));
     }
     if (isJoined) {
       room.addTrack(localTracks[i]);
@@ -85,11 +90,21 @@ function onRemoteTrack(track) {
   const id = participant + track.getType() + idx;
 
   if (track.getType() === "video") {
-    $("body").append(`<video autoplay='1' id='${participant}video${idx}' />`);
+    document
+      .getElementById("root")
+      .insertAdjacentHTML(
+        "beforeend",
+        `<video autoplay='1' id='${participant}video${idx}' />`
+      );
   } else {
-    $("body").append(`<audio autoplay='1' id='${participant}audio${idx}' />`);
+    document
+      .getElementById("root")
+      .insertAdjacentHTML(
+        "beforeend",
+        `<audio autoplay='1' id='${participant}audio${idx}' />`
+      );
   }
-  track.attach($(`#${id}`)[0]);
+  track.attach(document.getElementById(`${id}`));
 }
 
 /**
@@ -115,7 +130,7 @@ function onUserLeft(id) {
   const tracks = remoteTracks[id];
 
   for (let i = 0; i < tracks.length; i++) {
-    tracks[i].detach($(`#${id}${tracks[i].getType()}`));
+    tracks[i].detach(document.getElementById(`${id}${tracks[i].getType()}`));
   }
 }
 
@@ -225,7 +240,7 @@ function switchVideo() {
         JitsiMeetJS.events.track.LOCAL_TRACK_STOPPED,
         () => console.log("local track stoped")
       );
-      localTracks[1].attach($("#localVideo1")[0]);
+      localTracks[1].attach(document.getElementById("localVideo1"));
       room.addTrack(localTracks[1]);
     })
     .catch(error => console.log(error));
