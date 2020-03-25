@@ -1,4 +1,4 @@
-import { JitsiMeetJS } from "./lib-jitsi-meet.min.js";
+let JitsiMeetJS = window.JitsiMeetJS;
 const confOptions = {
   openBridgeChannel: true
 };
