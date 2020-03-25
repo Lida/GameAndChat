@@ -46,8 +46,8 @@ export default function App() {
     <a-sky color="#333333" />
   </a-scene>
     `;
-    document.getElementById("aframe").innerHTML = content;
-  }, []);
+    document.getElementById("aframe")!.innerHTML = content;
+  }, [boardName]);
   return (
     <div className="App">
       <div id="aframe" />
