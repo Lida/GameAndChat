@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import "./styles.css";
 import "aframe";
 import "ammo.js";
@@ -11,7 +11,7 @@ export default function App() {
   //   window.Game.BasicModule.Map[4].BoardPicker.Board._attributes.image;
   let boardName = encodeURIComponent("Board OTB.jpg");
   //https://raw.githubusercontent.com/Lida/GameAndChat/master/public/Pandemic/images/Board%20OTB.jpg
-  useEffect(() => {
+  const onClick = useCallback(() => {
     const content = `
     <a-scene embedded physics="driver: ammo; debug: false; debugDrawMode: 1;">
       <a-assets>
@@ -54,6 +54,7 @@ export default function App() {
       <div id="aframe" />
       <div
         onClick={e => {
+          onClick();
           Jitis();
         }}
       >
