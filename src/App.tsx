@@ -10,9 +10,9 @@ export default function App() {
   //   window.Game.BasicModule.Map[4].BoardPicker.Board._attributes.image;
   let boardName = encodeURIComponent("Board OTB.jpg");
   //https://raw.githubusercontent.com/Lida/GameAndChat/master/public/Pandemic/images/Board%20OTB.jpg
-  const onClick = useCallback(() => {
+  useEffect(() => {
     const content = `
-    <a-scene embedded physics="driver: ammo; debug: false; debugDrawMode: 1;">
+    <a-scene embedded>
       <a-assets>
         <img id="board" src="https://raw.githubusercontent.com/Lida/GameAndChat/master/public/Pandemic/images/${boardName}" />
       </a-assets>
@@ -21,14 +21,13 @@ export default function App() {
     </a-entity>
     <a-image
       src= "#board"
-      ammo-body="type: static"
-      ammo-shape="type: box"
+      static-body
       position="0 -2 -3"
       rotation="-90 0 0"
       width="6"
       height="4">
       </a-image>
-    <a-box ammo-body="type: dynamic" ammo-shape="type: box" position="-1 0.5 -3" rotation="44 44 0" color="#4CC3D9">
+    <a-box dynamic-body position="-1 0.5 -3" rotation="44 44 0" color="#4CC3D9">
     </a-box>
     <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E">
     </a-sphere>
@@ -53,7 +52,6 @@ export default function App() {
       <div id="aframe" />
       <div
         onClick={e => {
-          onClick();
           Jitis();
         }}
       >
