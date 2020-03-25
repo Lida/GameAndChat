@@ -1,11 +1,12 @@
 {
-  "name": "gamechat",
+  "name": "gameandchat",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
   "main": "src/index.tsx",
   "dependencies": {
     "aframe": "1.0.4",
+    "aframe-physics-system": "4.0.1",
     "bootstrap": "4.4.1",
     "react": "^16.12.0",
     "react-bootstrap": "1.0.0",
