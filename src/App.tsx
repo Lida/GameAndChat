@@ -1,7 +1,6 @@
 import React, { useEffect, useCallback } from "react";
 import "./styles.css";
 import "aframe";
-import "ammo.js";
 import "aframe-physics-system";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Jitis from "./Jitis";
