@@ -59,7 +59,7 @@ export default function App() {
       <Link
         to={url}
         onClick={e => {
-          Jitis();
+          Jitis(room);
         }}
       >
         Join Game
