@@ -274,41 +274,38 @@ export default function start() {
     // Whether desktop sharing should be disabled on Firefox.
     desktopSharingFirefoxDisabled: true
   };
-  console.log("click");
   JitsiMeetJS.init(initOptions);
-  connection = new JitsiMeetJS.JitsiConnection(null, undefined, {
-    clientNode: "http://jitsi.org/jitsimeet",
-    googleApiApplicationClientID:
-      "39065779381-bbhnkrgibtf4p0j9ne5vsq7bm49t1tlf.apps.googleusercontent.com",
-    serviceUrl: "wss://meet.jit.si/xmpp-websocket?room=hardaliensrhymetenderly",
-    hosts: {
-      domain: "meet.jit.si",
-      focus: "focus.meet.jit.si",
-      muc: "conference.meet.jit.si"
-    },
-    useRtcpMux: true,
-    useStunTurn: true,
-    websocket: "wss://meet.jit.si/xmpp-websocket"
-  });
-  connection.addEventListener(
-    JitsiMeetJS.events.connection.CONNECTION_ESTABLISHED,
-    onConnectionSuccess
-  );
-  connection.addEventListener(
-    JitsiMeetJS.events.connection.CONNECTION_FAILED,
-    onConnectionFailed
-  );
-  connection.addEventListener(
-    JitsiMeetJS.events.connection.CONNECTION_DISCONNECTED,
-    disconnect
-  );
+  // connection = new JitsiMeetJS.JitsiConnection(null, undefined, {
+  //   clientNode: "http://jitsi.org/jitsimeet",
+  //   serviceUrl: "wss://meet.jit.si/xmpp-websocket?room=hardaliensrhymetenderly",
+  //   hosts: {
+  //     domain: "meet.jit.si",
+  //     focus: "focus.meet.jit.si",
+  //     muc: "conference.meet.jit.si"
+  //   },
+  //   useRtcpMux: true,
+  //   useStunTurn: true,
+  //   websocket: "wss://meet.jit.si/xmpp-websocket"
+  // });
+  // connection.addEventListener(
+  //   JitsiMeetJS.events.connection.CONNECTION_ESTABLISHED,
+  //   onConnectionSuccess
+  // );
+  // connection.addEventListener(
+  //   JitsiMeetJS.events.connection.CONNECTION_FAILED,
+  //   onConnectionFailed
+  // );
+  // connection.addEventListener(
+  //   JitsiMeetJS.events.connection.CONNECTION_DISCONNECTED,
+  //   disconnect
+  // );
 
-  JitsiMeetJS.mediaDevices.addEventListener(
-    JitsiMeetJS.events.mediaDevices.DEVICE_LIST_CHANGED,
-    onDeviceListChanged
-  );
+  // JitsiMeetJS.mediaDevices.addEventListener(
+  //   JitsiMeetJS.events.mediaDevices.DEVICE_LIST_CHANGED,
+  //   onDeviceListChanged
+  // );
 
-  connection.connect();
+  // connection.connect();
 
   JitsiMeetJS.mediaDevices.isDevicePermissionGranted().then(() => {
     JitsiMeetJS.createLocalTracks({

@@ -1,12 +1,13 @@
 import React, { useEffect, useCallback } from "react";
 import "aframe";
 import "aframe-physics-system";
-import { Link, useParams } from "react-router-dom";
-
+import { Link, useParams, useRouteMatch } from "react-router-dom";
 import Jitis from "../Libs/Jitis";
 
 export default function App() {
   let { game, room } = useParams();
+  let { path, url } = useRouteMatch();
+
   // let boardName =
   //   window.Game.BasicModule.Map[4].BoardPicker.Board._attributes.image;
   let boardName = encodeURIComponent("Board OTB.jpg");
@@ -55,14 +56,14 @@ export default function App() {
       <div id="aframe" />
       <Link to="/">Back</Link>
       <br />
-      <a
-        href="."
+      <Link
+        to={url}
         onClick={e => {
           Jitis();
         }}
       >
         Join Game
-      </a>
+      </Link>
     </div>
   );
 }
