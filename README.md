@@ -1,2 +1,0 @@
-# GameAndChat
-Created with CodeSandbox

@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VASSAL.launch.BasicModule VassalVersion="3.1.12" description="Published by Z-Man Games" name="Pandemic - On the Brink" nextPieceSlotId="797" version="1.1">
+    <VASSAL.build.module.BasicCommandEncoder/>
+    <VASSAL.build.module.Documentation>
+        <VASSAL.build.module.documentation.AboutScreen fileName="box cover.jpg" title="PANDEMIC"/>
+        <VASSAL.build.module.documentation.HelpFile fileName="About Pandemic 2.txt" fileType="archive" title="About Pandemic"/>
+        <VASSAL.build.module.documentation.HelpFile fileName="Pandemic Rules 2.txt" fileType="archive" title="Pandemic Rules"/>
+        <VASSAL.build.module.documentation.HelpFile fileName="How to Use the Module.txt" fileType="archive" title="How to use the module"/>
+        <VASSAL.build.module.documentation.HelpFile fileName="Incredibles variant notes.txt" fileType="archive" title="Incredibles variant notes"/>
+    </VASSAL.build.module.Documentation>
+    <VASSAL.build.module.PlayerRoster buttonText="" buttonToolTip="">
+        <entry>Solitaire</entry>
+        <entry>Player 1</entry>
+        <entry>Player 2</entry>
+        <entry>Player 3</entry>
+        <entry>Player 4</entry>
+        <entry>Player 5</entry>
+    </VASSAL.build.module.PlayerRoster>
+    <VASSAL.build.module.GlobalOptions autoReport="Never" centerOnMove="Always" nonOwnerUnmaskable="Never" playerIdFormat="$playerName$" promptString="Opponents can unmask my pieces">
+        <option name="stepIcon">/images/StepForward16.gif</option>
+        <option name="undoIcon">/images/Undo16.gif</option>
+        <option name="stepHotKey">34,0</option>
+        <option name="serverControlsIcon">/images/connect.gif</option>
+        <option name="serverControlsHotKey">83,520</option>
+    </VASSAL.build.module.GlobalOptions>
+    <VASSAL.build.module.gamepieceimage.GamePieceImageDefinitions>
+        <VASSAL.build.module.gamepieceimage.ColorManager/>
+        <VASSAL.build.module.gamepieceimage.FontManager>
+            <VASSAL.build.module.gamepieceimage.FontStyle name="Default" style="Dialog,0,12,false"/>
+        </VASSAL.build.module.gamepieceimage.FontManager>
+        <VASSAL.build.module.gamepieceimage.GamePieceLayoutsContainer/>
+    </VASSAL.build.module.gamepieceimage.GamePieceImageDefinitions>
+    <VASSAL.build.module.properties.GlobalProperties/>
+    <VASSAL.build.module.PrototypesContainer>
+        <VASSAL.build.module.PrototypeDefinition name="i">+/null/immob;;N	report;68\,130;$playerName$: The infection spread to $newPieceName$;;;\	obs;70,0;Infection Card Back.jpg;Mask;P;?;player:\\	piece;;;;/	-1\	null\\	null;243;0</VASSAL.build.module.PrototypeDefinition>
+        <VASSAL.build.module.PrototypeDefinition name="p">+/null/mark;card	report;82\,130;$playerName$ played $newPieceName$;;;Play\	report;68\,0;$playerName$ discarded $newPieceName$;;;Discard\\	immob;;N\\\	return;Discard;68,0;Player Discard Pile;Select destination\\\\	obs;70,0;Player Card Back.jpg;Flip;P;?;player:\\\\\	piece;;;;/action	-1\	-1\\	\\\	\\\\	null\\\\\	null;254;0;</VASSAL.build.module.PrototypeDefinition>
+        <VASSAL.build.module.PrototypeDefinition name="cr">+/null/return;Return to Red Dish;68,0;Red Infection Cube Deck;Select destination	mark;card\	immob;;N\\	piece;;;;/	action\	\\	null;252;0;</VASSAL.build.module.PrototypeDefinition>
+        <VASSAL.build.module.PrototypeDefinition name="cy">+/null/mark;card	immob;;N\	return;Return to Yellow Dish;68,0;Yellow Infection Cube Deck;Select destination\\	piece;;;;/action	\	\\	null;252;0;</VASSAL.build.module.PrototypeDefinition>
+        <VASSAL.build.module.PrototypeDefinition name="cblack">+/null/immob;;N	mark;card\	return;Return to Black Dish;68,0;Black Infection Cube Deck;Select destination\\	piece;;;;/	action\	\\	null;252;0;</VASSAL.build.module.PrototypeDefinition>
+        <VASSAL.build.module.PrototypeDefinition name="cblue">+/null/mark;card	immob;;N\	return;Return to Blue Dish;68,0;Blue Infection Cube Deck;Select destination\\	piece;;;;/action	\	\\	null;252;0;</VASSAL.build.module.PrototypeDefinition>
+        <VASSAL.build.module.PrototypeDefinition name="board marker">+/null/report;;$newPieceName$ $menuCommand$ by $playerSide$*;;;	piece;;;;/-1	null;241;0</VASSAL.build.module.PrototypeDefinition>
+        <VASSAL.build.module.PrototypeDefinition name="cp">+/null/return;Return to Purple Dish;68,0;Purple Infection Cube Deck;Select destination	mark;card\	immob;;N\\	piece;;;;/	action\	\\	null;252;0;</VASSAL.build.module.PrototypeDefinition>
+        <VASSAL.build.module.PrototypeDefinition name="vs">+/null/mark;card	report;82\,130;$playerName$ played $newPieceName$;;;Play\	report;68\,0;$playerName$ discarded $newPieceName$;;;Discard\\	immob;;N\\\	return;Discard;68,0;Player Discard Pile;Select destination\\\\	obs;70,0;Player Card Back.jpg;Flip;P;?;player:\\\\\	piece;;;;/action	-1\	-1\\	\\\	\\\\	null\\\\\	null;0;0;</VASSAL.build.module.PrototypeDefinition>
+    </VASSAL.build.module.PrototypesContainer>
+    <VASSAL.build.module.Chatter/>
+    <VASSAL.i18n.Language/>
+    <VASSAL.build.module.Map allowMultiple="false" backgroundcolor="255,255,255" buttonName="Setup" changeFormat="$message$" color="0,0,0" createFormat="$pieceName$ created in $location$" edgeHeight="0" edgeWidth="0" hotkey="" icon="Player Card Tab.jpg" launch="true" mapName="Player Deck Start Board" markMoved="Always" markUnmovedIcon="/images/unmoved.gif" markUnmovedText="" markUnmovedTooltip="Mark all pieces on this map as not moved" moveKey="" moveToFormat="$pieceName$ moves $previousLocation$ -&gt; $location$ *" moveWithinFormat="$pieceName$ moves $previousLocation$ -&gt; $location$ *" thickness="3" tooltip="Click here to draw your opening hand and prepare the Player Draw Deck">
+        <VASSAL.build.module.map.BoardPicker addColumnText="Add column" addRowText="Add row" boardPrompt="Select board" slotHeight="125" slotScale="0.2" slotWidth="350" title="Choose Boards">
+            <VASSAL.build.module.map.boardPicker.Board image="Player Card Board OTB.JPG" name="Player Deck setup" reversible="false"/>
+        </VASSAL.build.module.map.BoardPicker>
+        <VASSAL.build.module.map.StackMetrics bottom="40,0" disabled="false" down="37,0" exSepX="6" exSepY="18" top="38,0" unexSepX="2" unexSepY="4" up="39,0"/>
+        <VASSAL.build.module.map.ForwardToKeyBuffer/>
+        <VASSAL.build.module.map.Scroller/>
+        <VASSAL.build.module.map.ForwardToChatter/>
+        <VASSAL.build.module.map.MenuDisplayer/>
+        <VASSAL.build.module.map.MapCenterer/>
+        <VASSAL.build.module.map.StackExpander/>
+        <VASSAL.build.module.map.PieceMover/>
+        <VASSAL.build.module.map.KeyBufferer/>
+        <VASSAL.build.module.map.ImageSaver buttonText="" hotkey="" icon="/images/camera.gif" tooltip="Save Map as PNG file"/>
+        <VASSAL.build.module.map.CounterDetailViewer borderWidth="0" counterReportFormat="" delay="700" display="from top-most layer only" emptyHexReportForma="$LocationName$" fgColor="0,0,0" fontSize="9" graphicsZoom="1.0" hotkey="32,130" layerList="" minDisplayPieces="2" propertyFilter="" showDeck="false" showMoveSelectde="false" showNoStack="false" showNonMovable="false" showgraph="true" showgraphsingle="false" showtext="false" showtextsingle="false" summaryReportFormat="$LocationName$" unrotatePieces="false" version="" zoomlevel="1.0"/>
+        <VASSAL.build.module.properties.GlobalProperties/>
+        <VASSAL.build.module.map.SelectionHighlighters/>
+        <VASSAL.build.module.map.HighlightLastMoved color="255,0,0" enabled="true" thickness="2"/>
+        <VASSAL.build.module.map.SetupStack name="Epidemic Stack" owningBoard="Player Deck setup" useGridLocation="false" x="799" y="367">
+            <VASSAL.build.widget.PieceSlot entryName="Epidemic" gpid="0" height="0" width="0">+/null/prototype;p	piece;;;Epidemic.jpg;Epidemic/	null;0;0;0</VASSAL.build.widget.PieceSlot>
+            <VASSAL.build.widget.PieceSlot entryName="Epidemic" gpid="1" height="0" width="0">+/null/prototype;p	piece;;;Epidemic.jpg;Epidemic/	null;0;0;1</VASSAL.build.widget.PieceSlot>
+            <VASSAL.build.widget.PieceSlot entryName="Epidemic" gpid="2" height="0" width="0">+/null/prototype;p	piece;;;Epidemic.jpg;Epidemic/	null;0;0;2</VASSAL.build.widget.PieceSlot>
+            <VASSAL.build.widget.PieceSlot entryName="Epidemic" gpid="3" height="0" width="0">+/null/prototype;p	piece;;;Epidemic.jpg;Epidemic/	null;0;0;3</VASSAL.build.widget.PieceSlot>
+            <VASSAL.build.widget.PieceSlot entryName="Epidemic" gpid="4" height="0" width="0">+/null/prototype;p	piece;;;Epidemic.jpg;Epidemic/	null;0;0;4</VASSAL.build.widget.PieceSlot>
+            <VASSAL.build.widget.PieceSlot entryName="Epidemic" gpid="5" height="0" width="0">+/null/prototype;p	piece;;;Epidemic.jpg;Epidemic/	null;0;0;5</VASSAL.build.widget.PieceSlot>
+            <VASSAL.build.widget.PieceSlot entryName="Epidemic" gpid="784" height="0" width="0">+/null/prototype;p	piece;;;Epidemic.jpg;Epidemic/	null;0;0;784</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.DrawPile allowMultiple="false" allowSelect="false" canSave="false" color="0,0,0" countExpressions="" draw="false" drawFaceUp="false" emptyHotkey="" expressionCounting="false" faceDown="Always" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="5" name="Setup Deck 1" owningBoard="Player Deck setup" reshufflable="true" reshuffleCommand="Send to Player Draw Deck on game board" reshuffleHotkey="" reshuffleMessage="" reshuffleTarget="Player Draw Deck" reverseFormat="" reversible="false" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Via right-click Menu" shuffleFormat="" shuffleHotkey="" width="40" x="175" y="854"/>
+        <VASSAL.build.module.map.DrawPile allowMultiple="false" allowSelect="false" canSave="false" color="0,0,0" countExpressions="" draw="false" drawFaceUp="false" emptyHotkey="" expressionCounting="false" faceDown="Always" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="5" name="Setup Deck 2" owningBoard="Player Deck setup" reshufflable="true" reshuffleCommand="Send to Player Draw Deck on game board" reshuffleHotkey="" reshuffleMessage="" reshuffleTarget="Player Draw Deck" reverseFormat="" reversible="false" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Via right-click Menu" shuffleFormat="" shuffleHotkey="" width="40" x="480" y="854"/>
+        <VASSAL.build.module.map.DrawPile allowMultiple="false" allowSelect="false" canSave="false" color="0,0,0" countExpressions="" draw="false" drawFaceUp="false" emptyHotkey="" expressionCounting="false" faceDown="Always" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="5" name="Setup Deck 3" owningBoard="Player Deck setup" reshufflable="true" reshuffleCommand="Send to Player Draw Deck on game board" reshuffleHotkey="" reshuffleMessage="" reshuffleTarget="Player Draw Deck" reverseFormat="" reversible="false" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Via right-click Menu" shuffleFormat="" shuffleHotkey="" width="40" x="798" y="854"/>
+        <VASSAL.build.module.map.DrawPile allowMultiple="false" allowSelect="false" canSave="false" color="0,0,0" countExpressions="" draw="false" drawFaceUp="false" emptyHotkey="" expressionCounting="false" faceDown="Always" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="5" name="Setup Deck 4" owningBoard="Player Deck setup" reshufflable="true" reshuffleCommand="Send to Player Draw Deck on game board" reshuffleHotkey="" reshuffleMessage="" reshuffleTarget="Player Draw Deck" reverseFormat="" reversible="false" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Via right-click Menu" shuffleFormat="" shuffleHotkey="" width="40" x="1115" y="855"/>
+        <VASSAL.build.module.map.DrawPile allowMultiple="false" allowSelect="false" canSave="false" color="0,0,0" countExpressions="" draw="false" drawFaceUp="false" emptyHotkey="" expressionCounting="false" faceDown="Always" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="5" name="Setup Deck 5" owningBoard="Player Deck setup" reshufflable="true" reshuffleCommand="Send to Player Draw Deck on game board" reshuffleHotkey="" reshuffleMessage="" reshuffleTarget="Player Draw Deck" reverseFormat="" reversible="false" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Via right-click Menu" shuffleFormat="" shuffleHotkey="" width="40" x="1435" y="857"/>
+        <VASSAL.build.module.map.DrawPile allowMultiple="false" allowSelect="false" canSave="false" color="0,0,0" countExpressions="" draw="false" drawFaceUp="false" emptyHotkey="" expressionCounting="false" faceDown="Always" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="5" name="Setup Deck 6" owningBoard="Player Deck setup" reshufflable="true" reshuffleCommand="Send to Player Draw Deck on game board" reshuffleHotkey="" reshuffleMessage="" reshuffleTarget="Player Draw Deck" reverseFormat="" reversible="false" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Via right-click Menu" shuffleFormat="" shuffleHotkey="" width="40" x="1749" y="854"/>
+        <VASSAL.build.module.map.DrawPile allowMultiple="false" allowSelect="false" canSave="false" color="0,0,0" countExpressions="" draw="false" drawFaceUp="false" emptyHotkey="" expressionCounting="false" faceDown="Always" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="5" name="Setup Deck 7" owningBoard="Player Deck setup" reshufflable="true" reshuffleCommand="Send to Player Draw Deck on game board" reshuffleHotkey="" reshuffleMessage="" reshuffleTarget="Player Draw Deck" reverseFormat="" reversible="false" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Via right-click Menu" shuffleFormat="" shuffleHotkey="" width="40" x="2060" y="854"/>
+        <VASSAL.build.module.map.DrawPile allowMultiple="true" allowSelect="false" canSave="false" color="0,0,0" countExpressions="" draw="false" drawFaceUp="true" emptyHotkey="" expressionCounting="false" faceDown="Always" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="5" name="Player Card Start Deck" owningBoard="Player Deck setup" reshufflable="false" reshuffleCommand="" reshuffleHotkey="" reshuffleMessage="" reshuffleTarget="" reverseFormat="" reversible="false" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Via right-click Menu" shuffleFormat="" shuffleHotkey="" width="40" x="174" y="367">
+            <VASSAL.build.widget.CardSlot entryName="Algiers" gpid="6" height="0" width="0">+/null/prototype;p	piece;;;ALGIERS 2.jpg;Algiers/	null;0;0;6</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Baghdad" gpid="7" height="0" width="0">+/null/prototype;p	piece;;;BAGHDAD 2.jpg;Baghdad/	null;0;0;7</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Cairo" gpid="8" height="0" width="0">+/null/prototype;p	piece;;;CAIRO 2.jpg;Cairo/	null;0;0;8</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Chennai" gpid="9" height="0" width="0">+/null/prototype;p	piece;;;CHENNAI 2.jpg;Chennai/	null;0;0;9</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Dehli" gpid="10" height="0" width="0">+/null/prototype;p	piece;;;DEHLI 2.jpg;Dehli/	null;0;0;10</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Istanbul" gpid="11" height="0" width="0">+/null/prototype;p	piece;;;ISTANBUL 2.jpg;Istanbul/	null;0;0;11</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Karachi" gpid="12" height="0" width="0">+/null/prototype;p	piece;;;KARACHI 2.jpg;Karachi/	null;0;0;12</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Kolkata" gpid="13" height="0" width="0">+/null/prototype;p	piece;;;KOLKATA 2.jpg;Kolkata/	null;0;0;13</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Moscow" gpid="14" height="0" width="0">+/null/prototype;p	piece;;;MOSCOW 2.jpg;Moscow/	null;0;0;14</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Mumbai" gpid="15" height="0" width="0">+/null/prototype;p	piece;;;MUMBAI 2.jpg;Mumbai/	null;0;0;15</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Riyadh" gpid="16" height="0" width="0">+/null/prototype;p	piece;;;RIYADH 2.jpg;Riyadh/	null;0;0;16</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Tehran" gpid="17" height="0" width="0">+/null/prototype;p	piece;;;TEHRAN 2.jpg;Tehran/	null;0;0;17</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Atlanta" gpid="18" height="0" width="0">+/null/prototype;p	piece;;;ATLANTA 2.jpg;Atlanta/	null;0;0;18</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Chicago" gpid="19" height="0" width="0">+/null/prototype;p	piece;;;CHICAGO 2.jpg;Chicago/	null;0;0;19</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Essen" gpid="20" height="0" width="0">+/null/prototype;p	piece;;;ESSEN 2.jpg;Essen/	null;0;0;20</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="London" gpid="21" height="0" width="0">+/null/prototype;p	piece;;;LONDON 2.jpg;London/	null;0;0;21</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Madrid" gpid="22" height="0" width="0">+/null/prototype;p	piece;;;MADRID 2.jpg;Madrid/	null;0;0;22</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Milan" gpid="23" height="0" width="0">+/null/prototype;p	piece;;;MILAN 2.jpg;Milan/	null;0;0;23</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="New York" gpid="24" height="0" width="0">+/null/prototype;p	piece;;;NEW YORK 2.jpg;New York/	null;0;0;24</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Paris" gpid="25" height="0" width="0">+/null/prototype;p	piece;;;PARIS 2.jpg;Paris/	null;0;0;25</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="San Francisco" gpid="26" height="0" width="0">+/null/prototype;p	piece;;;SAN FRANCISCO 2.jpg;San Francisco/	null;0;0;26</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="St. Petersburg" gpid="27" height="0" width="0">+/null/prototype;p	piece;;;ST. PETERSBURG 2.jpg;St. Petersburg/	null;0;0;27</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Toronto" gpid="28" height="0" width="0">+/null/prototype;p	piece;;;TORONTO 2.jpg;Toronto/	null;0;0;28</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Washington" gpid="29" height="0" width="0">+/null/prototype;p	piece;;;WASHINGTON 2.jpg;Washington/	null;0;0;29</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Bangkok" gpid="30" height="0" width="0">+/null/prototype;p	piece;;;BANGKOK 2.jpg;Bangkok/	null;0;0;30</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Beijing" gpid="31" height="0" width="0">+/null/prototype;p	piece;;;BEIJING 2.jpg;Beijing/	null;0;0;31</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Ho Chi Minh City" gpid="32" height="0" width="0">+/null/prototype;p	piece;;;HO CHI MINH CITY 2.jpg;Ho Chi Minh City/	null;0;0;32</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Hong Kong" gpid="33" height="0" width="0">+/null/prototype;p	piece;;;HONG KONG 2.jpg;Hong Kong/	null;0;0;33</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Jakarta" gpid="34" height="0" width="0">+/null/prototype;p	piece;;;JAKARTA 2.jpg;Jakarta/	null;0;0;34</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Manila" gpid="35" height="0" width="0">+/null/prototype;p	piece;;;MANILA 2.jpg;Manila/	null;0;0;35</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Osaka" gpid="36" height="0" width="0">+/null/prototype;p	piece;;;OSAKA 2.jpg;Osaka/	null;0;0;36</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Seoul" gpid="37" height="0" width="0">+/null/prototype;p	piece;;;SEOUL 2.jpg;Seoul/	null;0;0;37</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Shanghai" gpid="38" height="0" width="0">+/null/prototype;p	piece;;;SHANGHAI 2.jpg;Shanghai/	null;0;0;38</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Sydney" gpid="39" height="0" width="0">+/null/prototype;p	piece;;;SYDNEY 2.jpg;Sydney/	null;0;0;39</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Taipei" gpid="40" height="0" width="0">+/null/prototype;p	piece;;;TAIPEI 2.jpg;Taipei/	null;0;0;40</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Tokyo" gpid="41" height="0" width="0">+/null/prototype;p	piece;;;TOKYO 2.jpg;Tokyo/	null;0;0;41</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Bogota" gpid="42" height="0" width="0">+/null/prototype;p	piece;;;BOGOTA 2.jpg;Bogota/	null;0;0;42</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Buenos Aires" gpid="43" height="0" width="0">+/null/prototype;p	piece;;;BUENOS AIRES 2.jpg;Buenos Aires/	null;0;0;43</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Johannesburg" gpid="44" height="0" width="0">+/null/prototype;p	piece;;;JOHANNESBURG 2.jpg;Johannesburg/	null;0;0;44</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Khartoum" gpid="45" height="0" width="0">+/null/prototype;p	piece;;;KHARTOUM 2.jpg;Khartoum/	null;0;0;45</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Kinshasa" gpid="46" height="0" width="0">+/null/prototype;p	piece;;;KINSHASA 2.jpg;Kinshasa/	null;0;0;46</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Lagos" gpid="47" height="0" width="0">+/null/prototype;p	piece;;;LAGOS 2.jpg;Lagos/	null;0;0;47</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Lima" gpid="48" height="0" width="0">+/null/prototype;p	piece;;;LIMA 2.jpg;Lima/	null;0;0;48</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Los Angeles" gpid="49" height="0" width="0">+/null/prototype;p	piece;;;LOS ANGELES 2.jpg;Los Angeles/	null;0;0;49</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Mexico City" gpid="50" height="0" width="0">+/null/prototype;p	piece;;;MEXICO CITY 2.jpg;Mexico City/	null;0;0;50</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Miami" gpid="51" height="0" width="0">+/null/prototype;p	piece;;;MIAMI 2.jpg;Miami/	null;0;0;51</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Santiago" gpid="52" height="0" width="0">+/null/prototype;p	piece;;;SANTIAGO 2.jpg;Santiago/	null;0;0;52</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Sao Paulo" gpid="53" height="0" width="0">+/null/prototype;p	piece;;;SAO PAULO 2.jpg;Sao Paulo/	null;0;0;53</VASSAL.build.widget.CardSlot>
+        </VASSAL.build.module.map.DrawPile>
+        <VASSAL.build.module.map.Zoomer inButtonText="" inIconName="/images/zoomIn.gif" inTooltip="Zoom in" outButtonText="" outIconName="/images/zoomOut.gif" outTooltip="Zoom out" pickButtonText="" pickIconName="/images/zoom.png" pickTooltip="Select Zoom" zoomInKey="" zoomLevels="0.4444444444444444,0.55,0.6666666666666666,1.0,1.5" zoomOutKey="" zoomPickKey="" zoomStart="5"/>
+        <VASSAL.build.module.map.DrawPile allowMultiple="true" allowSelect="false" canSave="false" color="0,0,0" countExpressions="" draw="false" drawFaceUp="true" emptyHotkey="" expressionCounting="false" faceDown="Always" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="5" name="Special Event Deck" owningBoard="Player Deck setup" reshufflable="false" reshuffleCommand="" reshuffleHotkey="" reshuffleMessage="" reshuffleTarget="" reverseFormat="" reversible="false" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Via right-click Menu" shuffleFormat="" shuffleHotkey="" width="40" x="489" y="368">
+            <VASSAL.build.widget.CardSlot entryName="Airlift - Special Event" gpid="368" height="0" width="0">+/null/prototype;p	piece;;;Special Event - Airlift.jpg;Airlift - Special Event/	null;0;0;368</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Forecast - Special Event" gpid="369" height="0" width="0">+/null/prototype;p	piece;;;Special Event - Forecast.jpg;Forecast - Special Event/	null;0;0;369</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Government Grant - Special Event" gpid="370" height="0" width="0">+/null/prototype;p	piece;;;Special Event - Government Grant.jpg;Government Grant - Special Event/	null;0;0;370</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="One Quiet Night - Special Event" gpid="371" height="0" width="0">+/null/prototype;p	piece;;;Special Event - One Quiet Night.jpg;One Quiet Night - Special Event/	null;0;0;371</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Resilient Population - Special Event" gpid="372" height="0" width="0">+/null/prototype;p	piece;;;Special Event - Resilient Population.jpg;Resilient Population - Special Event/	null;0;0;372</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Borrowed Time - Special Event" gpid="373" height="0" width="0">+/null/prototype;p	piece;;;Special Event - Borrowed Time.png;Borrowed Time - Special Event/	null;0;0;373</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Commercial Travel Ban - Special Event" gpid="374" height="0" width="0">+/null/prototype;p	piece;;;Special Event - Commercial Travel Ban.png;Commercial Travel Ban - Special Event/	null;0;0;374</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Mobile Hospital - Special Event" gpid="375" height="0" width="0">+/null/prototype;p	piece;;;Special Event - Mobile Hospital.png;Mobile Hospital - Special Event/	null;0;0;375</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="New Assignment - Special Event" gpid="376" height="0" width="0">+/null/prototype;p	piece;;;Special Event - New Assignment.png;New Assignment - Special Event/	null;0;0;376</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Rapid Vaccine Deployment - Special Event" gpid="377" height="0" width="0">+/null/prototype;p	piece;;;Special Event - Rapid Vaccine Deployment.png;Rapid Vaccine Deployment - Special Event/	null;0;0;377</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Re-examined Research - Special Event" gpid="378" height="0" width="0">+/null/prototype;p	piece;;;Special Event - Re-examined Research.png;Re-examined Research - Special Event/	null;0;0;378</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Remote Treatment - Special Event" gpid="379" height="0" width="0">+/null/prototype;p	piece;;;Special Event - Remote Treatment.png;Remote Treatment - Special Event/	null;0;0;379</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Special Orders - Special Event" gpid="380" height="0" width="0">+/null/prototype;p	piece;;;Special Event - Special Orders.png;Special Orders - Special Event/	null;0;0;380</VASSAL.build.widget.CardSlot>
+        </VASSAL.build.module.map.DrawPile>
+        <VASSAL.build.module.map.DrawPile allowMultiple="true" allowSelect="true" canSave="false" color="0,0,0" countExpressions="" draw="false" drawFaceUp="false" emptyHotkey="" expressionCounting="false" faceDown="Always" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="8" name="Virulent Strain" owningBoard="Player Deck setup" reshufflable="false" reshuffleCommand="" reshuffleHotkey="" reshuffleMessage="" reshuffleTarget="" reverseFormat="" reversible="true" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Always" shuffleFormat="" shuffleHotkey="" width="40" x="1114" y="367">
+            <VASSAL.build.widget.CardSlot entryName="Epidemic - Virulent Strain" gpid="381" height="0" width="0">+/null/prototype;vs	piece;;;Virulent Strain 1.png;Epidemic - Virulent Strain/	null;0;0;381</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Epidemic - Virulent Strain" gpid="382" height="0" width="0">+/null/prototype;vs	piece;;;Virulent Strain 2.png;Epidemic - Virulent Strain/	null;0;0;382</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Epidemic - Virulent Strain" gpid="383" height="0" width="0">+/null/prototype;vs	piece;;;Virulent Strain 3.png;Epidemic - Virulent Strain/	null;0;0;383</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Epidemic - Virulent Strain" gpid="384" height="0" width="0">+/null/prototype;vs	piece;;;Virulent Strain 4.png;Epidemic - Virulent Strain/	null;0;0;384</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Epidemic - Virulent Strain" gpid="385" height="0" width="0">+/null/prototype;vs	piece;;;Virulent Strain 5.png;Epidemic - Virulent Strain/	null;0;0;385</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Epidemic - Virulent Strain" gpid="386" height="0" width="0">+/null/prototype;vs	piece;;;Virulent Strain 6.png;Epidemic - Virulent Strain/	null;0;0;386</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Epidemic - Virulent Strain" gpid="387" height="0" width="0">+/null/prototype;vs	piece;;;Virulent Strain 7.png;Epidemic - Virulent Strain/	null;0;0;387</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Epidemic - Virulent Strain" gpid="388" height="0" width="0">+/null/prototype;vs	piece;;;Virulent Strain 8.png;Epidemic - Virulent Strain/	null;0;0;388</VASSAL.build.widget.CardSlot>
+        </VASSAL.build.module.map.DrawPile>
+        <VASSAL.build.module.map.DrawPile allowMultiple="true" allowSelect="true" canSave="false" color="0,0,0" countExpressions="" draw="false" drawFaceUp="true" emptyHotkey="" expressionCounting="false" faceDown="Always" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="3" name="Mutation" owningBoard="Player Deck setup" reshufflable="true" reshuffleCommand="Send to Player Card Deck" reshuffleHotkey="" reshuffleMessage="" reshuffleTarget="Player Card Start Deck" reverseFormat="" reversible="true" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Always" shuffleFormat="" shuffleHotkey="" width="40" x="1441" y="372">
+            <VASSAL.build.widget.CardSlot entryName="Mutation Event 1" gpid="754" height="0" width="0">+/null/prototype;p	piece;;;Mutation Event 1.png;Mutation Event 1/	null;0;0;754</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Mutation Event 2" gpid="755" height="0" width="0">+/null/prototype;p	piece;;;Mutation Event 2.png;Mutation Event 2/	null;0;0;755</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Mutation Event 3" gpid="756" height="0" width="0">+/null/prototype;p	piece;;;Mutation Event 3.png;Mutation Event 3/	null;0;0;756</VASSAL.build.widget.CardSlot>
+        </VASSAL.build.module.map.DrawPile>
+    </VASSAL.build.module.Map>
+    <VASSAL.build.module.RandomTextButton addToTotal="0" faces="Scientist,Researcher,Dispatcher,Operations Expert,Medic,Archivist,Epidemiologist,Containment Specialist,Troubleshooter,Generalist,Field Operative" hotkey="" icon="pawn random.png" nDice="1" name="Random Role Selection" numeric="false" plus="0" prompt="false" reportFormat="$playerName$ will be the $result$" reportTotal="false" sortDice="false" text="Random Roles" tooltip="Random Role Selection"/>
+    <VASSAL.build.module.Map allowMultiple="false" backgroundcolor="255,255,255" buttonName="Roles" changeFormat="$message$" color="0,0,0" createFormat="$pieceName$ created in $location$" edgeHeight="0" edgeWidth="0" hotkey="" icon="Role Card Back Tab.jpg" launch="true" mapName="Role Cards and Tokens" markMoved="Always" markUnmovedIcon="/images/unmoved.gif" markUnmovedText="" markUnmovedTooltip="Mark all pieces on this map as not moved" moveKey="" moveToFormat="$pieceName$ moves $previousLocation$ -&gt; $location$ *" moveWithinFormat="$pieceName$ moves $previousLocation$ -&gt; $location$ *" thickness="3" tooltip="Click to grab your Role Card and Player Token">
+        <VASSAL.build.module.map.BoardPicker addColumnText="Add column" addRowText="Add row" boardPrompt="Select board" slotHeight="125" slotScale="0.2" slotWidth="350" title="Choose Boards">
+            <VASSAL.build.module.map.boardPicker.Board color="153,153,255" height="1126" name="Role Cards and Tokens" reversible="false" width="1364"/>
+        </VASSAL.build.module.map.BoardPicker>
+        <VASSAL.build.module.map.StackMetrics bottom="40,0" disabled="false" down="37,0" exSepX="6" exSepY="18" top="38,0" unexSepX="2" unexSepY="4" up="39,0"/>
+        <VASSAL.build.module.map.ForwardToKeyBuffer/>
+        <VASSAL.build.module.map.Scroller/>
+        <VASSAL.build.module.map.ForwardToChatter/>
+        <VASSAL.build.module.map.MenuDisplayer/>
+        <VASSAL.build.module.map.MapCenterer/>
+        <VASSAL.build.module.map.StackExpander/>
+        <VASSAL.build.module.map.PieceMover/>
+        <VASSAL.build.module.map.KeyBufferer/>
+        <VASSAL.build.module.map.ImageSaver buttonText="" hotkey="" icon="/images/camera.gif" tooltip="Save Map as PNG file"/>
+        <VASSAL.build.module.map.CounterDetailViewer bgColor="255,255,255" borderWidth="0" counterReportFormat="" delay="700" display="from top-most layer only" emptyHexReportForma="$LocationName$" fgColor="0,0,0" fontSize="9" graphicsZoom="1.0" hotkey="32,130" layerList="" minDisplayPieces="2" propertyFilter="" showDeck="false" showMoveSelectde="false" showNoStack="true" showNonMovable="false" showgraph="true" showgraphsingle="false" showtext="false" showtextsingle="false" summaryReportFormat="$LocationName$" unrotatePieces="false" version="2" zoomlevel="1.0"/>
+        <VASSAL.build.module.properties.GlobalProperties/>
+        <VASSAL.build.module.map.SelectionHighlighters/>
+        <VASSAL.build.module.map.HighlightLastMoved color="255,0,0" enabled="true" thickness="2"/>
+        <VASSAL.build.module.map.Zoomer inButtonText="" inIconName="/images/zoomIn.gif" inTooltip="Zoom in" outButtonText="" outIconName="/images/zoomOut.gif" outTooltip="Zoom out" pickButtonText="" pickIconName="/images/zoom.png" pickTooltip="Select Zoom" zoomInKey="" zoomLevels="0.4444444444444444,0.6666666666666666,1.0,1.5" zoomOutKey="" zoomPickKey="" zoomStart="3"/>
+        <VASSAL.build.module.map.SetupStack name="pawn" owningBoard="Role Cards and Tokens" useGridLocation="false" x="304" y="152">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="758" height="0" width="0">+/null/delete;Discard;68,0	prototype;t\	immob;;N\\	piece;;;pawn brown 2.png;/	\	\\	null;0;0;758</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="pawn" owningBoard="Role Cards and Tokens" useGridLocation="false" x="635" y="153">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="759" height="0" width="0">+/null/delete;Discard;68,0	prototype;t\	immob;;N\\	piece;;;pawn containment specialist.png;/	\	\\	null;0;0;759</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="pawn" owningBoard="Role Cards and Tokens" useGridLocation="false" x="634" y="517">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="760" height="0" width="0">+/null/delete;Discard;68,0	prototype;t\	immob;;N\\	piece;;;pawn epidemiologist.png;/	\	\\	null;0;0;760</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="pawn" owningBoard="Role Cards and Tokens" useGridLocation="false" x="974" y="152">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="761" height="0" width="0">+/null/delete;Discard;68,0	prototype;t\	immob;;N\\	piece;;;pawn field operative.png;/	\	\\	null;0;0;761</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="pawn" owningBoard="Role Cards and Tokens" useGridLocation="false" x="973" y="518">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="762" height="0" width="0">+/null/delete;Discard;68,0	prototype;t\	immob;;N\\	piece;;;pawn generalist.png;/	\	\\	null;0;0;762</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="pawn" owningBoard="Role Cards and Tokens" useGridLocation="false" x="1308" y="153">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="763" height="0" width="0">+/null/delete;Discard;68,0	prototype;t\	immob;;N\\	piece;;;pawn green 2.png;/	\	\\	null;0;0;763</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="pawn" owningBoard="Role Cards and Tokens" useGridLocation="false" x="1306" y="516">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="764" height="0" width="0">+/null/delete;Discard;68,0	prototype;t\	immob;;N\\	piece;;;pawn orange 2.png;/	\	\\	null;0;0;764</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="pawn" owningBoard="Role Cards and Tokens" useGridLocation="false" x="303" y="885">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="765" height="0" width="0">+/null/delete;Discard;68,0	prototype;t\	immob;;N\\	piece;;;pawn dispatcher.png;/	\	\\	null;0;0;765</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="pawn" owningBoard="Role Cards and Tokens" useGridLocation="false" x="634" y="885">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="766" height="0" width="0">+/null/delete;Discard;68,0	prototype;t\	immob;;N\\	piece;;;pawn troubleshooter.png;/	\	\\	null;0;0;766</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="pawn" owningBoard="Role Cards and Tokens" useGridLocation="false" x="975" y="887">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="767" height="0" width="0">+/null/delete;Discard;68,0	prototype;t\	immob;;N\\	piece;;;pawn white 2.png;/	\	\\	null;0;0;767</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="pawn" owningBoard="Role Cards and Tokens" useGridLocation="false" x="1306" y="890">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="768" height="0" width="0">+/null/delete;Discard;68,0	prototype;t\	immob;;N\\	piece;;;pawn black.png;/	\	\\	null;0;0;768</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="role card" owningBoard="Role Cards and Tokens" useGridLocation="false" x="141" y="923">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="771" height="0" width="0">+/null/delete;Discard;68,0	immob;;N\	piece;;;Role Card - Dispatcher.jpg;/	\	null;0;0;771</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="pawn" owningBoard="Role Cards and Tokens" useGridLocation="false" x="303" y="519">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="772" height="0" width="0">+/null/delete;Discard;68,0	prototype;t\	immob;;N\\	piece;;;pawn archivist.png;/	\	\\	null;0;0;772</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="role card" owningBoard="Role Cards and Tokens" useGridLocation="false" x="143" y="556">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="773" height="0" width="0">+/null/delete;Discard;68,0	immob;;N\	piece;;;Role-Archivist.png;/	\	null;0;0;773</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="role card" owningBoard="Role Cards and Tokens" useGridLocation="false" x="476" y="550">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="774" height="0" width="0">+/null/delete;Discard;68,0	immob;;N\	piece;;;Role-Epidemiologist.png;/	\	null;0;0;774</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="role card" owningBoard="Role Cards and Tokens" useGridLocation="false" x="473" y="923">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="775" height="0" width="0">+/null/delete;Discard;68,0	immob;;N\	piece;;;Role-Troubleshooter.png;/	\	null;0;0;775</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="role card" owningBoard="Role Cards and Tokens" useGridLocation="false" x="140" y="194">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="776" height="0" width="0">+/null/delete;Discard;68,0	immob;;N\	piece;;;Role Card - Researcher.jpg;/	\	null;0;0;776</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="role card" owningBoard="Role Cards and Tokens" useGridLocation="false" x="477" y="191">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="777" height="0" width="0">+/null/delete;Discard;68,0	immob;;N\	piece;;;Role-Containment_Specialist.png;/	\	null;0;0;777</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="role card" owningBoard="Role Cards and Tokens" useGridLocation="false" x="813" y="188">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="778" height="0" width="0">+/null/delete;Discard;68,0	immob;;N\	piece;;;Role-Field_Operative.png;/	\	null;0;0;778</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="role card" owningBoard="Role Cards and Tokens" useGridLocation="false" x="813" y="552">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="779" height="0" width="0">+/null/delete;Discard;68,0	immob;;N\	piece;;;Role-Generalist.png;/	\	null;0;0;779</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="role card" owningBoard="Role Cards and Tokens" useGridLocation="false" x="812" y="930">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="780" height="0" width="0">+/null/delete;Discard;68,0	immob;;N\	piece;;;Role Card - Scientist.jpg;/	\	null;0;0;780</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="role card" owningBoard="Role Cards and Tokens" useGridLocation="false" x="1147" y="927">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="781" height="0" width="0">+/null/delete;Discard;68,0	immob;;N\	piece;;;Role-Bio-Terrorist.png;/	\	null;0;0;781</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="role card" owningBoard="Role Cards and Tokens" useGridLocation="false" x="1146" y="558">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="782" height="0" width="0">+/null/delete;Discard;68,0	immob;;N\	piece;;;Role Card - Medic.jpg;/	\	null;0;0;782</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="role card" owningBoard="Role Cards and Tokens" useGridLocation="false" x="1145" y="186">
+            <VASSAL.build.widget.PieceSlot entryName="" gpid="783" height="0" width="0">+/null/delete;Discard;68,0	immob;;N\	piece;;;Role-Ops_Expert.png;/	\	null;0;0;783</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+    </VASSAL.build.module.Map>
+    <VASSAL.build.module.PlayerHand allowMultiple="false" backgroundcolor="255,255,255" buttonName="Player 1" changeFormat="$message$" color="0,0,0" createFormat="$pieceName$ created in $location$" edgeHeight="0" edgeWidth="0" hotkey="" icon="Tab - Blue.gif" launch="true" mapName="Player 1 Hand" markMoved="Always" markUnmovedIcon="/images/unmoved.gif" markUnmovedText="" markUnmovedTooltip="Mark all pieces on this map as not moved" moveKey="" moveToFormat="$pieceName$ moves $previousLocation$ -&gt; $location$ *" moveWithinFormat="$pieceName$ moves $previousLocation$ -&gt; $location$ *" side="Player 1,Solitaire" thickness="3" tooltip="Click here to show/hide Player 1's hand" visible="true">
+        <VASSAL.build.module.map.BoardPicker addColumnText="Add column" addRowText="Add row" boardPrompt="Select board" slotHeight="125" slotScale="0.2" slotWidth="350" title="Choose Boards">
+            <VASSAL.build.module.map.boardPicker.Board color="153,204,255" height="750" name="Player 1 Hand" reversible="false" width="1500"/>
+        </VASSAL.build.module.map.BoardPicker>
+        <VASSAL.build.module.map.HandMetrics bottom="40,0" disabled="false" down="37,0" exSepX="12" exSepY="0" top="38,0" unexSepX="12" unexSepY="0" up="39,0"/>
+        <VASSAL.build.module.map.ForwardToKeyBuffer/>
+        <VASSAL.build.module.map.Scroller/>
+        <VASSAL.build.module.map.ForwardToChatter/>
+        <VASSAL.build.module.map.MenuDisplayer/>
+        <VASSAL.build.module.map.MapCenterer/>
+        <VASSAL.build.module.map.PieceMover/>
+        <VASSAL.build.module.map.KeyBufferer/>
+        <VASSAL.build.module.map.ImageSaver buttonText="" hotkey="" icon="/images/camera.gif" tooltip="Save Map as PNG file"/>
+        <VASSAL.build.module.properties.GlobalProperties/>
+        <VASSAL.build.module.map.SelectionHighlighters/>
+        <VASSAL.build.module.map.HighlightLastMoved color="255,0,0" enabled="true" thickness="2"/>
+        <VASSAL.build.module.map.Zoomer inButtonText="" inIconName="/images/zoomIn.gif" inTooltip="Zoom in" outButtonText="" outIconName="/images/zoomOut.gif" outTooltip="Zoom out" pickButtonText="" pickIconName="/images/zoom.png" pickTooltip="Select Zoom" zoomInKey="" zoomLevels="0.4444444444444444,0.55,0.6666666666666666,1.0,1.5" zoomOutKey="" zoomPickKey="" zoomStart="4"/>
+        <VASSAL.build.module.map.CounterDetailViewer borderWidth="0" counterReportFormat="" delay="700" display="from top-most layer only" emptyHexReportForma="$LocationName$" fgColor="0,0,0" fontSize="9" graphicsZoom="1.0" hotkey="32,130" layerList="" minDisplayPieces="2" propertyFilter="" showDeck="false" showMoveSelectde="false" showNoStack="true" showNonMovable="false" showgraph="true" showgraphsingle="false" showtext="false" showtextsingle="false" summaryReportFormat="$LocationName$" unrotatePieces="false" version="2" zoomlevel="1.0"/>
+    </VASSAL.build.module.PlayerHand>
+    <VASSAL.build.module.PlayerHand allowMultiple="false" backgroundcolor="255,255,255" buttonName="Player 2" changeFormat="$message$" color="0,0,0" createFormat="$pieceName$ created in $location$" edgeHeight="0" edgeWidth="0" hotkey="" icon="Tab - Yellow 2.gif" launch="true" mapName="Player 2 Hand" markMoved="Always" markUnmovedIcon="/images/unmoved.gif" markUnmovedText="" markUnmovedTooltip="Mark all pieces on this map as not moved" moveKey="" moveToFormat="$pieceName$ moves $previousLocation$ -&gt; $location$ *" moveWithinFormat="$pieceName$ moves $previousLocation$ -&gt; $location$ *" side="Player 2,Solitaire" thickness="3" tooltip="Click here to show/hide Player 2's hand" visible="true">
+        <VASSAL.build.module.map.BoardPicker addColumnText="Add column" addRowText="Add row" boardPrompt="Select board" slotHeight="125" slotScale="0.2" slotWidth="350" title="Choose Boards">
+            <VASSAL.build.module.map.boardPicker.Board color="255,255,153" height="750" name="Player 1 Hand" reversible="false" width="1500"/>
+        </VASSAL.build.module.map.BoardPicker>
+        <VASSAL.build.module.map.HandMetrics bottom="40,0" disabled="false" down="37,0" exSepX="12" exSepY="0" top="38,0" unexSepX="12" unexSepY="0" up="39,0"/>
+        <VASSAL.build.module.map.ForwardToKeyBuffer/>
+        <VASSAL.build.module.map.Scroller/>
+        <VASSAL.build.module.map.ForwardToChatter/>
+        <VASSAL.build.module.map.MenuDisplayer/>
+        <VASSAL.build.module.map.MapCenterer/>
+        <VASSAL.build.module.map.PieceMover/>
+        <VASSAL.build.module.map.KeyBufferer/>
+        <VASSAL.build.module.map.ImageSaver buttonText="" hotkey="" icon="/images/camera.gif" tooltip="Save Map as PNG file"/>
+        <VASSAL.build.module.properties.GlobalProperties/>
+        <VASSAL.build.module.map.SelectionHighlighters/>
+        <VASSAL.build.module.map.HighlightLastMoved color="255,0,0" enabled="true" thickness="2"/>
+        <VASSAL.build.module.map.Zoomer inButtonText="" inIconName="/images/zoomIn.gif" inTooltip="Zoom in" outButtonText="" outIconName="/images/zoomOut.gif" outTooltip="Zoom out" pickButtonText="" pickIconName="/images/zoom.png" pickTooltip="Select Zoom" zoomInKey="" zoomLevels="0.4444444444444444,0.55,0.6666666666666666,1.0,1.5" zoomOutKey="" zoomPickKey="" zoomStart="4"/>
+        <VASSAL.build.module.map.CounterDetailViewer borderWidth="0" counterReportFormat="" delay="700" display="from top-most layer only" emptyHexReportForma="$LocationName$" fgColor="0,0,0" fontSize="9" graphicsZoom="1.0" hotkey="32,130" layerList="" minDisplayPieces="2" propertyFilter="" showDeck="false" showMoveSelectde="false" showNoStack="true" showNonMovable="false" showgraph="true" showgraphsingle="false" showtext="false" showtextsingle="false" summaryReportFormat="$LocationName$" unrotatePieces="false" version="2" zoomlevel="1.0"/>
+    </VASSAL.build.module.PlayerHand>
+    <VASSAL.build.module.PlayerHand allowMultiple="false" backgroundcolor="255,255,255" buttonName="Player 3" changeFormat="$message$" color="0,0,0" createFormat="$pieceName$ created in $location$" edgeHeight="0" edgeWidth="0" hotkey="" icon="Tab - Black.gif" launch="true" mapName="Player 3 Hand" markMoved="Always" markUnmovedIcon="/images/unmoved.gif" markUnmovedText="" markUnmovedTooltip="Mark all pieces on this map as not moved" moveKey="" moveToFormat="$pieceName$ moves $previousLocation$ -&gt; $location$ *" moveWithinFormat="$pieceName$ moves $previousLocation$ -&gt; $location$ *" side="Solitaire,Player 3" thickness="3" tooltip="Click here to show/hide Player 3's hand" visible="true">
+        <VASSAL.build.module.map.BoardPicker addColumnText="Add column" addRowText="Add row" boardPrompt="Select board" slotHeight="125" slotScale="0.2" slotWidth="350" title="Choose Boards">
+            <VASSAL.build.module.map.boardPicker.Board color="204,204,204" height="750" name="Player 1 Hand" reversible="false" width="1500"/>
+        </VASSAL.build.module.map.BoardPicker>
+        <VASSAL.build.module.map.HandMetrics bottom="40,0" disabled="false" down="37,0" exSepX="12" exSepY="0" top="38,0" unexSepX="12" unexSepY="0" up="39,0"/>
+        <VASSAL.build.module.map.ForwardToKeyBuffer/>
+        <VASSAL.build.module.map.Scroller/>
+        <VASSAL.build.module.map.ForwardToChatter/>
+        <VASSAL.build.module.map.MenuDisplayer/>
+        <VASSAL.build.module.map.MapCenterer/>
+        <VASSAL.build.module.map.PieceMover/>
+        <VASSAL.build.module.map.KeyBufferer/>
+        <VASSAL.build.module.map.ImageSaver buttonText="" hotkey="" icon="/images/camera.gif" tooltip="Save Map as PNG file"/>
+        <VASSAL.build.module.properties.GlobalProperties/>
+        <VASSAL.build.module.map.SelectionHighlighters/>
+        <VASSAL.build.module.map.HighlightLastMoved color="255,0,0" enabled="true" thickness="2"/>
+        <VASSAL.build.module.map.Zoomer inButtonText="" inIconName="/images/zoomIn.gif" inTooltip="Zoom in" outButtonText="" outIconName="/images/zoomOut.gif" outTooltip="Zoom out" pickButtonText="" pickIconName="/images/zoom.png" pickTooltip="Select Zoom" zoomInKey="" zoomLevels="0.4444444444444444,0.55,0.6666666666666666,1.0,1.5" zoomOutKey="" zoomPickKey="" zoomStart="4"/>
+        <VASSAL.build.module.map.CounterDetailViewer borderWidth="0" counterReportFormat="" delay="700" display="from top-most layer only" emptyHexReportForma="$LocationName$" fgColor="0,0,0" fontSize="9" graphicsZoom="1.0" hotkey="32,130" layerList="" minDisplayPieces="2" propertyFilter="" showDeck="false" showMoveSelectde="false" showNoStack="true" showNonMovable="false" showgraph="true" showgraphsingle="false" showtext="false" showtextsingle="false" summaryReportFormat="$LocationName$" unrotatePieces="false" version="2" zoomlevel="1.0"/>
+    </VASSAL.build.module.PlayerHand>
+    <VASSAL.build.module.PlayerHand allowMultiple="false" backgroundcolor="255,255,255" buttonName="Player 4" changeFormat="$message$" color="0,0,0" createFormat="$pieceName$ created in $location$" edgeHeight="0" edgeWidth="0" hotkey="" icon="Tab - Red.gif" launch="true" mapName="Player 4 Hand" markMoved="Always" markUnmovedIcon="/images/unmoved.gif" markUnmovedText="" markUnmovedTooltip="Mark all pieces on this map as not moved" moveKey="" moveToFormat="$pieceName$ moves $previousLocation$ -&gt; $location$ *" moveWithinFormat="$pieceName$ moves $previousLocation$ -&gt; $location$ *" side="Solitaire,Player 4" thickness="3" tooltip="Click here to show/hide Player 4's hand" visible="true">
+        <VASSAL.build.module.map.BoardPicker addColumnText="Add column" addRowText="Add row" boardPrompt="Select board" slotHeight="125" slotScale="0.2" slotWidth="350" title="Choose Boards">
+            <VASSAL.build.module.map.boardPicker.Board color="255,51,51" height="750" name="Player 1 Hand" reversible="false" width="1500"/>
+        </VASSAL.build.module.map.BoardPicker>
+        <VASSAL.build.module.map.HandMetrics bottom="40,0" disabled="false" down="37,0" exSepX="12" exSepY="0" top="38,0" unexSepX="12" unexSepY="0" up="39,0"/>
+        <VASSAL.build.module.map.ForwardToKeyBuffer/>
+        <VASSAL.build.module.map.Scroller/>
+        <VASSAL.build.module.map.ForwardToChatter/>
+        <VASSAL.build.module.map.MenuDisplayer/>
+        <VASSAL.build.module.map.MapCenterer/>
+        <VASSAL.build.module.map.PieceMover/>
+        <VASSAL.build.module.map.KeyBufferer/>
+        <VASSAL.build.module.map.ImageSaver buttonText="" hotkey="" icon="/images/camera.gif" tooltip="Save Map as PNG file"/>
+        <VASSAL.build.module.properties.GlobalProperties/>
+        <VASSAL.build.module.map.SelectionHighlighters/>
+        <VASSAL.build.module.map.HighlightLastMoved color="255,0,0" enabled="true" thickness="2"/>
+        <VASSAL.build.module.map.Zoomer inButtonText="" inIconName="/images/zoomIn.gif" inTooltip="Zoom in" outButtonText="" outIconName="/images/zoomOut.gif" outTooltip="Zoom out" pickButtonText="" pickIconName="/images/zoom.png" pickTooltip="Select Zoom" zoomInKey="" zoomLevels="0.4444444444444444,0.55,0.6666666666666666,1.0,1.5" zoomOutKey="" zoomPickKey="" zoomStart="4"/>
+        <VASSAL.build.module.map.CounterDetailViewer borderWidth="0" counterReportFormat="" delay="700" display="from top-most layer only" emptyHexReportForma="$LocationName$" fgColor="0,0,0" fontSize="9" graphicsZoom="1.0" hotkey="32,130" layerList="" minDisplayPieces="2" propertyFilter="" showDeck="false" showMoveSelectde="false" showNoStack="true" showNonMovable="false" showgraph="true" showgraphsingle="false" showtext="false" showtextsingle="false" summaryReportFormat="$LocationName$" unrotatePieces="false" version="2" zoomlevel="1.0"/>
+    </VASSAL.build.module.PlayerHand>
+    <VASSAL.build.module.PlayerHand allowMultiple="false" backgroundcolor="255,255,255" buttonName="Player 5" changeFormat="$message$" color="0,0,0" createFormat="$pieceName$ created in $location$" edgeHeight="0" edgeWidth="0" hotkey="" icon="tab purple.png" launch="true" mapName="Player 5 Hand" markMoved="Always" markUnmovedIcon="/images/unmoved.gif" markUnmovedText="" markUnmovedTooltip="Mark all pieces on this map as not moved" moveKey="" moveToFormat="$pieceName$ moves $previousLocation$ -&gt; $location$ *" moveWithinFormat="$pieceName$ moves $previousLocation$ -&gt; $location$ *" side="Solitaire,Player 5" thickness="3" tooltip="Click here to show/hide Player 4's hand" visible="true">
+        <VASSAL.build.module.map.BoardPicker addColumnText="Add column" addRowText="Add row" boardPrompt="Select board" slotHeight="125" slotScale="0.2" slotWidth="350" title="Choose Boards">
+            <VASSAL.build.module.map.boardPicker.Board color="153,0,153" height="750" name="Player 1 Hand" reversible="false" width="1500"/>
+        </VASSAL.build.module.map.BoardPicker>
+        <VASSAL.build.module.map.HandMetrics bottom="40,0" disabled="false" down="37,0" exSepX="12" exSepY="0" top="38,0" unexSepX="12" unexSepY="0" up="39,0"/>
+        <VASSAL.build.module.map.ForwardToKeyBuffer/>
+        <VASSAL.build.module.map.Scroller/>
+        <VASSAL.build.module.map.ForwardToChatter/>
+        <VASSAL.build.module.map.MenuDisplayer/>
+        <VASSAL.build.module.map.MapCenterer/>
+        <VASSAL.build.module.map.PieceMover/>
+        <VASSAL.build.module.map.KeyBufferer/>
+        <VASSAL.build.module.map.ImageSaver buttonText="" hotkey="" icon="/images/camera.gif" tooltip="Save Map as PNG file"/>
+        <VASSAL.build.module.properties.GlobalProperties/>
+        <VASSAL.build.module.map.SelectionHighlighters/>
+        <VASSAL.build.module.map.HighlightLastMoved color="255,0,0" enabled="true" thickness="2"/>
+        <VASSAL.build.module.map.Zoomer inButtonText="" inIconName="/images/zoomIn.gif" inTooltip="Zoom in" outButtonText="" outIconName="/images/zoomOut.gif" outTooltip="Zoom out" pickButtonText="" pickIconName="/images/zoom.png" pickTooltip="Select Zoom" zoomInKey="" zoomLevels="0.4444444444444444,0.55,0.6666666666666666,1.0,1.5" zoomOutKey="" zoomPickKey="" zoomStart="4"/>
+        <VASSAL.build.module.map.CounterDetailViewer borderWidth="0" counterReportFormat="" delay="700" display="from top-most layer only" emptyHexReportForma="$LocationName$" fgColor="0,0,0" fontSize="9" graphicsZoom="1.0" hotkey="32,130" layerList="" minDisplayPieces="2" propertyFilter="" showDeck="false" showMoveSelectde="false" showNoStack="true" showNonMovable="false" showgraph="true" showgraphsingle="false" showtext="false" showtextsingle="false" summaryReportFormat="$LocationName$" unrotatePieces="false" version="2" zoomlevel="1.0"/>
+    </VASSAL.build.module.PlayerHand>
+    <VASSAL.build.module.Map allowMultiple="false" backgroundcolor="255,255,255" buttonName="" changeFormat="$message$" color="0,0,0" createFormat="$pieceName$ created in $location$" edgeHeight="0" edgeWidth="0" hotkey="" icon="cure tab.png" launch="true" mapName="Cure Counters" markMoved="Always" markUnmovedIcon="/images/unmoved.gif" markUnmovedText="" markUnmovedTooltip="Mark all pieces on this map as not moved" moveKey="" moveToFormat="$pieceName$ moves $previousLocation$ -&gt; $location$ *" moveWithinFormat="$pieceName$ moves $previousLocation$ -&gt; $location$ *" thickness="3" tooltip="Click here to grab Cure and Eradication Counters">
+        <VASSAL.build.module.map.BoardPicker addColumnText="Add column" addRowText="Add row" boardPrompt="Select board" slotHeight="125" slotScale="0.2" slotWidth="350" title="Choose Boards">
+            <VASSAL.build.module.map.boardPicker.Board image="cure board.jpg" name="Cure Counters" reversible="false"/>
+        </VASSAL.build.module.map.BoardPicker>
+        <VASSAL.build.module.map.StackMetrics bottom="40,0" disabled="false" down="37,0" exSepX="6" exSepY="18" top="38,0" unexSepX="2" unexSepY="4" up="39,0"/>
+        <VASSAL.build.module.map.ForwardToKeyBuffer/>
+        <VASSAL.build.module.map.Scroller/>
+        <VASSAL.build.module.map.ForwardToChatter/>
+        <VASSAL.build.module.map.MenuDisplayer/>
+        <VASSAL.build.module.map.MapCenterer/>
+        <VASSAL.build.module.map.StackExpander/>
+        <VASSAL.build.module.map.PieceMover/>
+        <VASSAL.build.module.map.KeyBufferer/>
+        <VASSAL.build.module.map.ImageSaver buttonText="" hotkey="" icon="/images/camera.gif" tooltip="Save Map as PNG file"/>
+        <VASSAL.build.module.map.CounterDetailViewer borderWidth="0" counterReportFormat="" delay="700" display="from top-most layer only" emptyHexReportForma="$LocationName$" fgColor="0,0,0" fontSize="9" graphicsZoom="1.0" hotkey="32,130" layerList="" minDisplayPieces="2" propertyFilter="" showDeck="false" showMoveSelectde="false" showNoStack="false" showNonMovable="false" showgraph="true" showgraphsingle="false" showtext="false" showtextsingle="false" summaryReportFormat="$LocationName$" unrotatePieces="false" version="" zoomlevel="1.0"/>
+        <VASSAL.build.module.properties.GlobalProperties/>
+        <VASSAL.build.module.map.SelectionHighlighters/>
+        <VASSAL.build.module.map.HighlightLastMoved color="255,0,0" enabled="true" thickness="2"/>
+        <VASSAL.build.module.map.SetupStack name="Cure 1" useGridLocation="false" x="100" y="100">
+            <VASSAL.build.widget.PieceSlot entryName="Black Cure" gpid="69" height="0" width="0">+/null/obs;69,0;Eradication Token.gif;Eradicated;P;?;player:	piece;;;Cure - Black.jpg;Black Cure/null	null;0;0;69</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="Cure 2" useGridLocation="false" x="300" y="100">
+            <VASSAL.build.widget.PieceSlot entryName="Blue Cure" gpid="70" height="0" width="0">+/null/obs;69,0;Eradication Token.gif;Eradicated;P;?;player:	piece;;;Cure - Blue.jpg;Blue Cure/null	null;0;0;70</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="Cure 3" useGridLocation="false" x="500" y="100">
+            <VASSAL.build.widget.PieceSlot entryName="Red Cure" gpid="71" height="0" width="0">+/null/obs;69,0;Eradication Token.gif;Eradicated;P;?;player:	piece;;;Cure - Red.jpg;Red Cure/null	null;0;0;71</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="Cure 4" useGridLocation="false" x="100" y="300">
+            <VASSAL.build.widget.PieceSlot entryName="Yellow Cure" gpid="72" height="0" width="0">+/null/obs;69,0;Eradication Token.gif;Eradicated;P;?;player:	piece;;;Cure - Yellow.jpg;Yellow Cure/null	null;0;0;72</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="Cure 5" useGridLocation="false" x="300" y="300">
+            <VASSAL.build.widget.PieceSlot entryName="Purple Cure" gpid="299" height="0" width="0">+/null/obs;69,0;Eradication Token.gif;Eradicated;P;?;player:	piece;;;cure-purple.png;Purple Cure/null	null;0;0;299</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+    </VASSAL.build.module.Map>
+    <VASSAL.build.module.Map allowMultiple="false" backgroundcolor="255,255,255" buttonName="Action Key" changeFormat="$message$" color="0,0,0" createFormat="$pieceName$ created in $location$" edgeHeight="0" edgeWidth="0" hotkey="" icon="Epidemic Tab.jpg" launch="true" mapName="Action Key" markMoved="Always" markUnmovedIcon="/images/unmoved.gif" markUnmovedText="" markUnmovedTooltip="Mark all pieces on this map as not moved" moveKey="" moveToFormat="$pieceName$ moves $previousLocation$ -&gt; $location$ *" moveWithinFormat="$pieceName$ moves $previousLocation$ -&gt; $location$ *" thickness="3" tooltip="Click here to see what player actions are possible">
+        <VASSAL.build.module.map.BoardPicker addColumnText="Add column" addRowText="Add row" boardPrompt="Select board" slotHeight="125" slotScale="0.2" slotWidth="350" title="Choose Boards">
+            <VASSAL.build.module.map.boardPicker.Board image="Action Key.jpg" name="Action Key" reversible="false"/>
+        </VASSAL.build.module.map.BoardPicker>
+        <VASSAL.build.module.map.StackMetrics bottom="40,0" disabled="false" down="37,0" exSepX="6" exSepY="18" top="38,0" unexSepX="2" unexSepY="4" up="39,0"/>
+        <VASSAL.build.module.map.ForwardToKeyBuffer/>
+        <VASSAL.build.module.map.Scroller/>
+        <VASSAL.build.module.map.ForwardToChatter/>
+        <VASSAL.build.module.map.MenuDisplayer/>
+        <VASSAL.build.module.map.MapCenterer/>
+        <VASSAL.build.module.map.StackExpander/>
+        <VASSAL.build.module.map.PieceMover/>
+        <VASSAL.build.module.map.KeyBufferer/>
+        <VASSAL.build.module.map.ImageSaver buttonText="" hotkey="" icon="/images/camera.gif" tooltip="Save Map as PNG file"/>
+        <VASSAL.build.module.map.CounterDetailViewer borderWidth="0" counterReportFormat="" delay="700" display="from top-most layer only" emptyHexReportForma="$LocationName$" fgColor="0,0,0" fontSize="9" graphicsZoom="1.0" hotkey="32,130" layerList="" minDisplayPieces="2" propertyFilter="" showDeck="false" showMoveSelectde="false" showNoStack="false" showNonMovable="false" showgraph="true" showgraphsingle="false" showtext="false" showtextsingle="false" summaryReportFormat="$LocationName$" unrotatePieces="false" version="" zoomlevel="1.0"/>
+        <VASSAL.build.module.properties.GlobalProperties/>
+        <VASSAL.build.module.map.SelectionHighlighters/>
+        <VASSAL.build.module.map.HighlightLastMoved color="255,0,0" enabled="true" thickness="2"/>
+    </VASSAL.build.module.Map>
+    <VASSAL.build.module.Map allowMultiple="false" backgroundcolor="255,255,255" buttonName="Map" changeFormat="$message$" color="0,0,0" createFormat="$pieceName$ created in $location$" edgeHeight="0" edgeWidth="0" hotkey="" icon="" launch="false" mapName="Main Map" markMoved="Always" markUnmovedIcon="/images/unmoved.gif" markUnmovedText="" markUnmovedTooltip="Mark all pieces on this map as not moved" moveKey="" moveToFormat="$playerSide$ moves $pieceName$ from $previousLocation$ -&gt; $location$ " moveWithinFormat="$playerSide$ moves $pieceName$ from $previousLocation$ -&gt; $location$ " thickness="3">
+        <VASSAL.build.module.map.BoardPicker addColumnText="Add column" addRowText="Add row" boardPrompt="Select board" slotHeight="125" slotScale="0.2" slotWidth="350" title="Choose Boards">
+            <VASSAL.build.module.map.boardPicker.Board image="Board OTB.jpg" name="Board" reversible="false">
+                <VASSAL.build.module.map.boardPicker.board.ZonedGrid>
+                    <VASSAL.build.module.map.boardPicker.board.mapgrid.ZonedGridHighlighter/>
+                    <VASSAL.build.module.map.boardPicker.board.mapgrid.Zone highlightProperty="" locationFormat="$name$" name="OUTBREAK: 0" path="171,894;162,973;87,975;85,895;85,894" useHighlight="false" useParentGrid="false"/>
+                    <VASSAL.build.module.map.boardPicker.board.mapgrid.Zone highlightProperty="" locationFormat="$name$" name="OUTBREAK: 1" path="163,968;241,963;241,963;241,1044;165,1043;169,1030" useHighlight="false" useParentGrid="false"/>
+                    <VASSAL.build.module.map.boardPicker.board.mapgrid.Zone highlightProperty="" locationFormat="$name$" name="OUTBREAK: 2" path="96,1109;168,1112;165,1041;82,1039" useHighlight="false" useParentGrid="false"/>
+                    <VASSAL.build.module.map.boardPicker.board.mapgrid.Zone highlightProperty="" locationFormat="$name$" name="OUTBREAK: 3" path="240,1106;243,1186;168,1187;164,1110;163,1109" useHighlight="false" useParentGrid="false"/>
+                    <VASSAL.build.module.map.boardPicker.board.mapgrid.Zone highlightProperty="" locationFormat="$name$" name="OUTBREAK: 4" path="88,1173;94,1256;172,1254;168,1184;167,1178;162,1179" useHighlight="false" useParentGrid="false"/>
+                    <VASSAL.build.module.map.boardPicker.board.mapgrid.Zone highlightProperty="" locationFormat="$name$" name="OUTBREAK: 5" path="168,1327;249,1326;246,1245;168,1251;163,1263" useHighlight="false" useParentGrid="false"/>
+                    <VASSAL.build.module.map.boardPicker.board.mapgrid.Zone highlightProperty="" locationFormat="$name$" name="OUTBREAK: 6" path="92,1320;94,1401;175,1396;169,1316" useHighlight="false" useParentGrid="false"/>
+                    <VASSAL.build.module.map.boardPicker.board.mapgrid.Zone highlightProperty="" locationFormat="$name$" name="OUTBREAK: 7" path="170,1466;247,1465;250,1391;179,1388;170,1392;165,1403" useHighlight="false" useParentGrid="false"/>
+                    <VASSAL.build.module.map.boardPicker.board.mapgrid.Zone highlightProperty="" locationFormat="$name$" name="OUTBREAK: 8 - GAME OVER!!!" path="179,1540;176,1461;92,1462;96,1535" useHighlight="false" useParentGrid="false"/>
+                </VASSAL.build.module.map.boardPicker.board.ZonedGrid>
+            </VASSAL.build.module.map.boardPicker.Board>
+        </VASSAL.build.module.map.BoardPicker>
+        <VASSAL.build.module.map.StackMetrics bottom="40,0" disabled="false" down="37,0" exSepX="6" exSepY="18" top="38,0" unexSepX="2" unexSepY="4" up="39,0"/>
+        <VASSAL.build.module.map.ForwardToKeyBuffer/>
+        <VASSAL.build.module.map.Scroller/>
+        <VASSAL.build.module.map.ForwardToChatter/>
+        <VASSAL.build.module.map.MenuDisplayer/>
+        <VASSAL.build.module.map.MapCenterer/>
+        <VASSAL.build.module.map.StackExpander/>
+        <VASSAL.build.module.map.PieceMover/>
+        <VASSAL.build.module.map.KeyBufferer/>
+        <VASSAL.build.module.map.ImageSaver buttonText="" hotkey="" icon="/images/camera.gif" tooltip="Save Map as PNG file"/>
+        <VASSAL.build.module.map.CounterDetailViewer borderWidth="0" counterReportFormat="" delay="700" display="from top-most layer only" emptyHexReportForma="$LocationName$" fgColor="0,0,0" fontSize="9" graphicsZoom="1.0" hotkey="32,130" layerList="" minDisplayPieces="2" propertyFilter="" showDeck="false" showMoveSelectde="false" showNoStack="false" showNonMovable="false" showgraph="true" showgraphsingle="false" showtext="false" showtextsingle="false" summaryReportFormat="$LocationName$" unrotatePieces="false" version="" zoomlevel="1.0"/>
+        <VASSAL.build.module.properties.GlobalProperties/>
+        <VASSAL.build.module.map.SelectionHighlighters/>
+        <VASSAL.build.module.map.HighlightLastMoved color="255,0,0" enabled="true" thickness="2"/>
+        <VASSAL.build.module.map.DrawPile allowMultiple="false" allowSelect="false" canSave="false" color="0,0,0" countExpressions="" draw="false" drawFaceUp="true" emptyHotkey="" expressionCounting="false" faceDown="Always" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="5" name="Infection Deck" owningBoard="Board" reshufflable="false" reshuffleCommand="" reshuffleHotkey="" reshuffleMessage="" reshuffleTarget="" reverseFormat="" reversible="false" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Never" shuffleFormat="" shuffleHotkey="" width="40" x="1430" y="154"/>
+        <VASSAL.build.module.map.DrawPile allowMultiple="true" allowSelect="true" canSave="false" color="0,0,0" countExpressions="" draw="false" drawFaceUp="true" emptyHotkey="" expressionCounting="false" faceDown="Always" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="5" name="Infection Discard Pile" owningBoard="Board" reshufflable="true" reshuffleCommand="Put on top of Infection Deck" reshuffleHotkey="" reshuffleMessage="$playerName$ put the shuffled Infection Discard Pile on top of the Infection Deck" reshuffleTarget="Infection Deck" reverseFormat="" reversible="false" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Via right-click Menu" shuffleFormat="$playerName$ shuffled the Infection Discard Pile" shuffleHotkey="" width="40" x="1821" y="155">
+            <VASSAL.build.widget.CardSlot entryName="Mutation" gpid="123" height="0" width="0">+/null/delete;Delete;88,0	return;Discard;68,0;Infection Discard Pile;Select destination\	prototype;i\\	piece;;;Mutation Infection x2.png;Mutation/	\	\\	null;0;0;123</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Mutation" gpid="750" height="0" width="0">+/null/delete;Delete;88,0	return;Discard;68,0;Infection Discard Pile;Select destination\	prototype;i\\	piece;;;Mutation Infection x2.png;Mutation/	\	\\	null;0;0;750</VASSAL.build.widget.CardSlot>
+        </VASSAL.build.module.map.DrawPile>
+        <VASSAL.build.module.map.CounterDetailViewer borderWidth="0" counterReportFormat="" delay="700" display="from top-most layer only" emptyHexReportForma="$LocationName$" fgColor="0,0,0" fontSize="9" graphicsZoom="1.0" hotkey="32,130" layerList="" minDisplayPieces="2" propertyFilter="" showDeck="false" showMoveSelectde="false" showNoStack="true" showNonMovable="false" showgraph="true" showgraphsingle="false" showtext="false" showtextsingle="false" summaryReportFormat="$LocationName$" unrotatePieces="false" version="2" zoomlevel="1.0"/>
+        <VASSAL.build.module.map.Zoomer inButtonText="" inIconName="/images/zoomIn.gif" inTooltip="Zoom in" outButtonText="" outIconName="/images/zoomOut.gif" outTooltip="Zoom out" pickButtonText="" pickIconName="/images/zoom.png" pickTooltip="Select Zoom" zoomInKey="" zoomLevels="0.4444444444444444,0.55,0.6666666666666666,1.0,1.5" zoomOutKey="" zoomPickKey="" zoomStart="4"/>
+        <VASSAL.build.module.map.SetupStack name="Infection Marker" owningBoard="Board" useGridLocation="false" x="1348" y="341">
+            <VASSAL.build.widget.PieceSlot entryName="Infection Rate Marker" gpid="125" height="0" width="0">+/null/prototype;board marker	piece;;;Infection Rate Marker.gif;Infection Rate Marker/	null;0;0;125</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="Outbreak Marker" owningBoard="Board" useGridLocation="false" x="127" y="935">
+            <VASSAL.build.widget.PieceSlot entryName="Outbreak Marker" gpid="126" height="0" width="0">+/null/prototype;board marker	piece;;;Ourbreak Marker.gif;Outbreak Marker/	null;0;0;126</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.DrawPile allowMultiple="false" allowSelect="false" canSave="false" color="0,0,0" countExpressions="" draw="true" drawFaceUp="false" emptyHotkey="" expressionCounting="false" faceDown="Always" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="6" name="Research Centers" owningBoard="Board" reshufflable="false" reshuffleCommand="" reshuffleHotkey="" reshuffleMessage="" reshuffleTarget="" reverseFormat="" reversible="false" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Never" shuffleFormat="" shuffleHotkey="" width="40" x="975" y="1123">
+            <VASSAL.build.widget.CardSlot entryName="Research Center" gpid="127" height="0" width="0">+/null/immob;;N	prototype;rc\	return;Remove Research Center;82,130;Research Centers;Select destination\\	piece;;;Research Centers.jpg;Research Center/	\	\\	null;0;0;127</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Research Center" gpid="128" height="0" width="0">+/null/immob;;N	prototype;rc\	return;Remove Research Center;82,130;Research Centers;Select destination\\	piece;;;Research Centers.jpg;Research Center/	\	\\	null;0;0;128</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Research Center" gpid="129" height="0" width="0">+/null/immob;;N	prototype;rc\	return;Remove Research Center;82,130;Research Centers;Select destination\\	piece;;;Research Centers.jpg;Research Center/	\	\\	null;0;0;129</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Research Center" gpid="130" height="0" width="0">+/null/immob;;N	prototype;rc\	return;Remove Research Center;82,130;Research Centers;Select destination\\	piece;;;Research Centers.jpg;Research Center/	\	\\	null;0;0;130</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Research Center" gpid="131" height="0" width="0">+/null/immob;;N	prototype;rc\	return;Remove Research Center;82,130;Research Centers;Select destination\\	piece;;;Research Centers.jpg;Research Center/	\	\\	null;0;0;131</VASSAL.build.widget.CardSlot>
+        </VASSAL.build.module.map.DrawPile>
+        <VASSAL.build.module.map.DrawPile allowMultiple="false" allowSelect="false" canSave="false" color="0,0,0" countExpressions="action:card=action" draw="false" drawFaceUp="true" emptyHotkey="" expressionCounting="true" faceDown="Always" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="5" name="Player Draw Deck" owningBoard="Board" reshufflable="false" reshuffleCommand="" reshuffleHotkey="" reshuffleMessage="" reshuffleTarget="" reverseFormat="" reversible="false" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Never" shuffleFormat="" shuffleHotkey="" width="40" x="1444" y="1343"/>
+        <VASSAL.build.module.map.DrawPile allowMultiple="false" allowSelect="true" canSave="false" color="0,0,0" countExpressions="" draw="false" drawFaceUp="false" emptyHotkey="" expressionCounting="false" faceDown="Never" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="5" name="Player Discard Pile" reshufflable="false" reshuffleCommand="" reshuffleHotkey="" reshuffleMessage="" reshuffleTarget="" reverseFormat="" reversible="false" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Never" shuffleFormat="" shuffleHotkey="" width="40" x="1752" y="1350"/>
+        <VASSAL.build.module.map.DrawPile allowMultiple="true" allowSelect="false" canSave="false" color="0,0,0" countExpressions="action:card=action" draw="false" drawFaceUp="false" emptyHotkey="" expressionCounting="true" faceDown="Never" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="1" name="Red Infection Cube Deck" reshufflable="false" reshuffleCommand="" reshuffleHotkey="" reshuffleMessage="" reshuffleTarget="" reverseFormat="" reversible="false" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Never" shuffleFormat="" shuffleHotkey="" width="40" x="2114" y="1012">
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="132" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;132</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="599" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;599</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="600" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;600</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="601" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;601</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="602" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;602</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="603" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;603</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="604" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;604</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="605" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;605</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="606" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;606</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="607" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;607</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="608" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;608</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="609" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;609</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="610" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;610</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="611" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;611</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="612" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;612</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="613" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;613</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="614" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;614</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="615" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;615</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="616" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;616</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="617" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;617</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="618" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;618</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="619" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;619</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="620" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;620</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Red Infection Cube" gpid="621" height="0" width="0">+/null/prototype;cr	piece;;;cube_red.png;Red Infection Cube/	null;0;0;621</VASSAL.build.widget.CardSlot>
+        </VASSAL.build.module.map.DrawPile>
+        <VASSAL.build.module.map.DrawPile allowMultiple="false" allowSelect="false" canSave="false" color="0,0,0" countExpressions="action:card=action" draw="false" drawFaceUp="false" emptyHotkey="" expressionCounting="true" faceDown="Never" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="1" name="Yellow Infection Cube Deck" owningBoard="Board" reshufflable="false" reshuffleCommand="" reshuffleHotkey="" reshuffleMessage="" reshuffleTarget="" reverseFormat="" reversible="false" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Never" shuffleFormat="" shuffleHotkey="" width="40" x="687" y="866">
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="156" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;156</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="622" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;622</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="623" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;623</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="624" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;624</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="625" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;625</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="626" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;626</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="627" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;627</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="628" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;628</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="629" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;629</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="630" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;630</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="631" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;631</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="632" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;632</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="633" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;633</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="634" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;634</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="635" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;635</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="636" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;636</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="637" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;637</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="638" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;638</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="639" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;639</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="640" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;640</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="641" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;641</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="642" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;642</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="643" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;643</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Yellow Infection Cube" gpid="644" height="0" width="0">+/null/prototype;cy	piece;;;cube_yellow.png;Yellow Infection Cube/	null;0;0;644</VASSAL.build.widget.CardSlot>
+        </VASSAL.build.module.map.DrawPile>
+        <VASSAL.build.module.map.DrawPile allowMultiple="false" allowSelect="false" canSave="false" color="0,0,0" countExpressions="action:card=action" draw="false" drawFaceUp="false" emptyHotkey="" expressionCounting="true" faceDown="Never" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="1" name="Black Infection Cube Deck" owningBoard="Board" reshufflable="false" reshuffleCommand="" reshuffleHotkey="" reshuffleMessage="" reshuffleTarget="" reverseFormat="" reversible="false" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Never" shuffleFormat="" shuffleHotkey="" width="40" x="1555" y="557">
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="180" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;180</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="645" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;645</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="646" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;646</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="647" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;647</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="648" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;648</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="649" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;649</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="650" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;650</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="651" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;651</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="652" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;652</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="653" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;653</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="654" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;654</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="655" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;655</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="656" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;656</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="657" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;657</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="658" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;658</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="659" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;659</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="660" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;660</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="661" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;661</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="662" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;662</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="663" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;663</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="664" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;664</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="665" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;665</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="666" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;666</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Black Infection Cube" gpid="667" height="0" width="0">+/null/prototype;cblack	piece;;;cube_black.png;Black Infection Cube/	null;0;0;667</VASSAL.build.widget.CardSlot>
+        </VASSAL.build.module.map.DrawPile>
+        <VASSAL.build.module.map.DrawPile allowMultiple="false" allowSelect="false" canSave="false" color="0,0,0" countExpressions="action:card=action" draw="false" drawFaceUp="false" emptyHotkey="" expressionCounting="true" faceDown="Never" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="1" name="Blue Infection Cube Deck" owningBoard="Board" reshufflable="false" reshuffleCommand="" reshuffleHotkey="" reshuffleMessage="" reshuffleTarget="" reverseFormat="" reversible="false" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Never" shuffleFormat="" shuffleHotkey="" width="40" x="687" y="452">
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="204" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;204</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="668" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;668</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="669" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;669</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="670" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;670</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="671" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;671</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="672" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;672</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="673" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;673</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="674" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;674</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="675" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;675</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="676" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;676</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="677" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;677</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="678" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;678</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="679" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;679</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="680" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;680</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="681" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;681</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="682" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;682</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="683" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;683</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="684" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;684</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="685" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;685</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="686" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;686</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="687" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;687</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="688" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;688</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="689" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;689</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Blue Infection Cube" gpid="690" height="0" width="0">+/null/prototype;cblue	piece;;;cube_blue.png;Blue Infection Cube/	null;0;0;690</VASSAL.build.widget.CardSlot>
+        </VASSAL.build.module.map.DrawPile>
+        <VASSAL.build.module.map.SetupStack name="Red Cube Counter" owningBoard="Board" useGridLocation="false" x="2160" y="962">
+            <VASSAL.build.widget.PieceSlot entryName="red counter" gpid="228" height="0" width="0">+/null/label;;Change Label;23;;204,0,0;b;0;c;0;b;c;$pieceName$ ($label$);Dialog;1;0;TextLabel	immob;n;V\	piece;;;counter bkgd red.jpg;red counter/$Red Infection Cube Deck_numPieces$	\	null;0;0;228</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="Yellow Cube Counter" owningBoard="Board" useGridLocation="false" x="737" y="814">
+            <VASSAL.build.widget.PieceSlot entryName="yellow counter" gpid="229" height="0" width="0">+/null/label;;Change Label;23;;255,255,102;b;0;c;0;b;c;$pieceName$ ($label$);Dialog;1;0;TextLabel	immob;n;V\	piece;;;counter bkgd yellow.jpg;yellow counter/$Yellow Infection Cube Deck_numPieces$	\	null;0;0;229</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="Blue Cube Counter" owningBoard="Board" useGridLocation="false" x="740" y="403">
+            <VASSAL.build.widget.PieceSlot entryName="blue counter" gpid="230" height="0" width="0">+/null/label;;Change Label;23;;51,153,255;b;0;c;0;b;c;$pieceName$ ($label$);Dialog;1;0;TextLabel	immob;n;V\	piece;;;counter bkgd blue.jpg;blue counter/$Blue Infection Cube Deck_numPieces$	\	null;0;0;230</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="Black Cube Counter" owningBoard="Board" useGridLocation="false" x="1604" y="519">
+            <VASSAL.build.widget.PieceSlot entryName="black counter" gpid="231" height="0" width="0">+/null/label;;Change Label;23;;0,0,0;b;0;c;0;b;c;$pieceName$ ($label$);Dialog;1;0;TextLabel	immob;n;V\	piece;;;counter bkgd black.jpg;black counter/$Black Infection Cube Deck_numPieces$	\	null;0;0;231</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="Draw Deck Counter" useGridLocation="false" x="1454" y="1164">
+            <VASSAL.build.widget.PieceSlot entryName="counter" gpid="232" height="0" width="0">+/null/label;;Change Label;26;;255,255,255;t;0;c;0;b;c;$pieceName$ ($label$);Dialog;1;0;TextLabel	immob;n;V\	piece;;;clear square.gif;counter/Cards Left:$Player Draw Deck_numPieces$	\	null;0;0;232</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.SetupStack name="Atlanta Research Center" owningBoard="Board" useGridLocation="false" x="338" y="694">
+            <VASSAL.build.widget.PieceSlot entryName="Research Center - Atlanta" gpid="233" height="0" width="0">+/null/piece;;;Research Centers.jpg;Research Center - Atlanta/null;0;0;233</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.DrawPile allowMultiple="true" allowSelect="false" canSave="false" color="0,0,0" countExpressions="action:card=action" draw="false" drawFaceUp="false" emptyHotkey="" expressionCounting="true" faceDown="Never" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="1" name="Purple Infection Cube Deck" owningBoard="Board" reshufflable="false" reshuffleCommand="" reshuffleHotkey="" reshuffleMessage="" reshuffleTarget="" reverseFormat="" reversible="false" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Never" shuffleFormat="" shuffleHotkey="" width="40" x="883" y="1120">
+            <VASSAL.build.widget.CardSlot entryName="Purple Infection Cube" gpid="263" height="0" width="0">+/null/prototype;cp	piece;;;cube_purple.png;Purple Infection Cube/	null;0;0;263</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Purple Infection Cube" gpid="691" height="0" width="0">+/null/prototype;cp	piece;;;cube_purple.png;Purple Infection Cube/	null;0;0;691</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Purple Infection Cube" gpid="692" height="0" width="0">+/null/prototype;cp	piece;;;cube_purple.png;Purple Infection Cube/	null;0;0;692</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Purple Infection Cube" gpid="693" height="0" width="0">+/null/prototype;cp	piece;;;cube_purple.png;Purple Infection Cube/	null;0;0;693</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Purple Infection Cube" gpid="694" height="0" width="0">+/null/prototype;cp	piece;;;cube_purple.png;Purple Infection Cube/	null;0;0;694</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Purple Infection Cube" gpid="695" height="0" width="0">+/null/prototype;cp	piece;;;cube_purple.png;Purple Infection Cube/	null;0;0;695</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Purple Infection Cube" gpid="696" height="0" width="0">+/null/prototype;cp	piece;;;cube_purple.png;Purple Infection Cube/	null;0;0;696</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Purple Infection Cube" gpid="697" height="0" width="0">+/null/prototype;cp	piece;;;cube_purple.png;Purple Infection Cube/	null;0;0;697</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Purple Infection Cube" gpid="698" height="0" width="0">+/null/prototype;cp	piece;;;cube_purple.png;Purple Infection Cube/	null;0;0;698</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Purple Infection Cube" gpid="699" height="0" width="0">+/null/prototype;cp	piece;;;cube_purple.png;Purple Infection Cube/	null;0;0;699</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Purple Infection Cube" gpid="700" height="0" width="0">+/null/prototype;cp	piece;;;cube_purple.png;Purple Infection Cube/	null;0;0;700</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Purple Infection Cube" gpid="701" height="0" width="0">+/null/prototype;cp	piece;;;cube_purple.png;Purple Infection Cube/	null;0;0;701</VASSAL.build.widget.CardSlot>
+        </VASSAL.build.module.map.DrawPile>
+        <VASSAL.build.module.map.SetupStack name="Purple Cube Counter" owningBoard="Board" useGridLocation="false" x="932" y="1075">
+            <VASSAL.build.widget.PieceSlot entryName="purple counter" gpid="298" height="0" width="0">+/null/label;;Change Label;23;;204,0,255;b;0;c;0;b;c;$pieceName$ ($label$);Dialog;1;0;TextLabel	immob;n;V\	piece;;;counter bkgd purple.jpg;purple counter/$Purple Infection Cube Deck_numPieces$	\	null;0;0;298</VASSAL.build.widget.PieceSlot>
+        </VASSAL.build.module.map.SetupStack>
+        <VASSAL.build.module.map.DrawPile allowMultiple="true" allowSelect="true" canSave="false" color="0,0,0" countExpressions="" draw="false" drawFaceUp="true" emptyHotkey="" expressionCounting="false" faceDown="Via right-click Menu" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="5" name="Infection &quot;Bottom of Deck&quot;" owningBoard="Board" reshufflable="true" reshuffleCommand="Put on top of Infection Deck" reshuffleHotkey="" reshuffleMessage="$playerName$ put the shuffled Infection Discard Pile on top of the Infection Deck" reshuffleTarget="Infection Deck" reverseFormat="" reversible="false" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Via right-click Menu" shuffleFormat="$playerName$ shuffled the Bottom of the Infection Deck" shuffleHotkey="" width="40" x="776" y="156">
+            <VASSAL.build.widget.CardSlot entryName="Algiers - Infection" gpid="702" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;ALGIERS.jpg;Algiers - Infection/	\	null;0;0;702</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Baghdad - Infection" gpid="703" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;BAGHDAD.jpg;Baghdad - Infection/	\	null;0;0;703</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Cairo - Infection" gpid="704" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;CAIRO.jpg;Cairo - Infection/	\	null;0;0;704</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Chennai - Infection" gpid="705" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;CHENNAI.jpg;Chennai - Infection/	\	null;0;0;705</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Dehli - Infection" gpid="706" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;DEHLI.jpg;Dehli - Infection/	\	null;0;0;706</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Istanbul - Infection" gpid="707" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;ISTANBUL.jpg;Istanbul - Infection/	\	null;0;0;707</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Karachi - Infection" gpid="708" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;KARACHI.jpg;Karachi - Infection/	\	null;0;0;708</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Kolkata - Infection" gpid="709" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;KOLKATA.jpg;Kolkata - Infection/	\	null;0;0;709</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Moscow - Infection" gpid="710" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;MOSCOW.jpg;Moscow - Infection/	\	null;0;0;710</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Mumbai - Infection" gpid="711" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;MUMBAI.jpg;Mumbai - Infection/	\	null;0;0;711</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Riyadh - Infection" gpid="712" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;RIYADH.jpg;Riyadh - Infection/	\	null;0;0;712</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Tehran - Infection" gpid="713" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;TEHRAN.jpg;Tehran - Infection/	\	null;0;0;713</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Atlanta - Infection" gpid="714" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;ATLANTA.jpg;Atlanta - Infection/	\	null;0;0;714</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Chicago - Infection" gpid="715" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;CHICAGO.jpg;Chicago - Infection/	\	null;0;0;715</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Essen - Infection" gpid="716" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;ESSEN.jpg;Essen - Infection/	\	null;0;0;716</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="London - Infection" gpid="717" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;LONDON.jpg;London - Infection/	\	null;0;0;717</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Madrid - Infection" gpid="718" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;MADRID.jpg;Madrid - Infection/	\	null;0;0;718</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="New York - Infection" gpid="719" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;NEW YORK.jpg;New York - Infection/	\	null;0;0;719</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Paris - Infection" gpid="720" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;PARIS.jpg;Paris - Infection/	\	null;0;0;720</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="San Francisco - Infection" gpid="721" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;SAN FRANCISCO.jpg;San Francisco - Infection/	\	null;0;0;721</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="St. Petersburg - Infection" gpid="722" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;ST. PETERSBURG.jpg;St. Petersburg - Infection/	\	null;0;0;722</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Toronto - Infection" gpid="723" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;TORONTO.jpg;Toronto - Infection/	\	null;0;0;723</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Washington - Infection" gpid="724" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;WASHINGTON.jpg;Washington - Infection/	\	null;0;0;724</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Milan - Infection" gpid="725" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;MILAN.jpg;Milan - Infection/	\	null;0;0;725</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Bangkok - Infection" gpid="726" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;BANGKOK.jpg;Bangkok - Infection/	\	null;0;0;726</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Ho Chi Minh City - Infection" gpid="727" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;HO CHI MINH CITY.jpg;Ho Chi Minh City - Infection/	\	null;0;0;727</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Hong Kong - Infection" gpid="728" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;HONG KONG.jpg;Hong Kong - Infection/	\	null;0;0;728</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Jakarta - Infection" gpid="729" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;JAKARTA.jpg;Jakarta - Infection/	\	null;0;0;729</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Manila - Infection" gpid="730" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;MANILA.jpg;Manila - Infection/	\	null;0;0;730</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Osaka - Infection" gpid="731" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;OSAKA.jpg;Osaka - Infection/	\	null;0;0;731</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Seoul - Infection" gpid="732" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;SEOUL.jpg;Seoul - Infection/	\	null;0;0;732</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Shanghai - Infection" gpid="733" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;SHANGHAI.jpg;Shanghai - Infection/	\	null;0;0;733</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Sydney - Infection" gpid="734" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;SYDNEY.jpg;Sydney - Infection/	\	null;0;0;734</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Taipei - Infection" gpid="735" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;TAIPEI.jpg;Taipei - Infection/	\	null;0;0;735</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Tokyo - Infection" gpid="736" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;TOKYO.jpg;Tokyo - Infection/	\	null;0;0;736</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Beijing - Infection" gpid="737" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;BEIJING.jpg;Beijing - Infection/	\	null;0;0;737</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Bogota - Infection" gpid="738" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;BOGOTA.jpg;Bogota - Infection/	\	null;0;0;738</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Buenos Aires - Infection" gpid="739" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;BUENOS AIRES.jpg;Buenos Aires - Infection/	\	null;0;0;739</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Johannesburg - Infection" gpid="740" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;JOHANNESBURG.jpg;Johannesburg - Infection/	\	null;0;0;740</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Khartoum - Infection" gpid="741" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;KHARTOUM.jpg;Khartoum - Infection/	\	null;0;0;741</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Kinshasa - Infection" gpid="742" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;KINSHASA.jpg;Kinshasa - Infection/	\	null;0;0;742</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Lagos - Infection" gpid="743" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;LAGOS.jpg;Lagos - Infection/	\	null;0;0;743</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Lima - Infection" gpid="744" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;LIMA.jpg;Lima - Infection/	\	null;0;0;744</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Los Angeles - Infection" gpid="745" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;LOS ANGELES.jpg;Los Angeles - Infection/	\	null;0;0;745</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Sao Paulo - Infection" gpid="746" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;SAO PAULO.jpg;Sao Paulo - Infection/	\	null;0;0;746</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Santiago - Infection" gpid="747" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;SANTIAGO.jpg;Santiago - Infection/	\	null;0;0;747</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Miami - Infection" gpid="748" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;MIAMI.jpg;Miami - Infection/	\	null;0;0;748</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Mexico City - Infection" gpid="749" height="0" width="0">+/null/return;Discard;68,0;Infection Discard Pile;Select destination	prototype;i\	piece;;;MEXICO CITY 3.jpg;Mexico City - Infection/	\	null;0;0;749</VASSAL.build.widget.CardSlot>
+        </VASSAL.build.module.map.DrawPile>
+    </VASSAL.build.module.Map>
+    <VASSAL.build.module.Map allowMultiple="false" backgroundcolor="255,255,255" buttonName="" changeFormat="$message$" color="0,0,0" createFormat="$pieceName$ created in $location$" edgeHeight="0" edgeWidth="0" hotkey="" icon="incredibles_icon.jpg" launch="true" mapName="Incredibles" markMoved="Always" markUnmovedIcon="/images/unmoved.gif" markUnmovedText="" markUnmovedTooltip="Mark all pieces on this map as not moved" moveKey="" moveToFormat="$pieceName$ moves $previousLocation$ -&gt; $location$ *" moveWithinFormat="$pieceName$ moves $previousLocation$ -&gt; $location$ *" thickness="3">
+        <VASSAL.build.module.map.BoardPicker addColumnText="Add column" addRowText="Add row" boardPrompt="Select board" slotHeight="125" slotScale="0.2" slotWidth="350" title="Choose Boards">
+            <VASSAL.build.module.map.boardPicker.Board image="incredibles_board.jpg" name="Incredibles" reversible="false"/>
+        </VASSAL.build.module.map.BoardPicker>
+        <VASSAL.build.module.map.StackMetrics bottom="40,0" disabled="false" down="37,0" exSepX="6" exSepY="18" top="38,0" unexSepX="2" unexSepY="4" up="39,0"/>
+        <VASSAL.build.module.map.ForwardToKeyBuffer/>
+        <VASSAL.build.module.map.Scroller/>
+        <VASSAL.build.module.map.ForwardToChatter/>
+        <VASSAL.build.module.map.MenuDisplayer/>
+        <VASSAL.build.module.map.MapCenterer/>
+        <VASSAL.build.module.map.StackExpander/>
+        <VASSAL.build.module.map.PieceMover/>
+        <VASSAL.build.module.map.KeyBufferer/>
+        <VASSAL.build.module.map.ImageSaver buttonText="" hotkey="" icon="/images/camera.gif" tooltip="Save Map as PNG image"/>
+        <VASSAL.build.module.map.CounterDetailViewer bgColor="255,255,255" borderWidth="0" counterReportFormat="" delay="700" display="from top-most layer only" emptyHexReportForma="$LocationName$" fgColor="0,0,0" fontSize="9" graphicsZoom="1.0" hotkey="32,130" layerList="" minDisplayPieces="2" propertyFilter="" showDeck="false" showMoveSelectde="false" showNoStack="true" showNonMovable="false" showgraph="true" showgraphsingle="false" showtext="false" showtextsingle="false" summaryReportFormat="$LocationName$" unrotatePieces="false" version="2" zoomlevel="1.0"/>
+        <VASSAL.build.module.properties.GlobalProperties/>
+        <VASSAL.build.module.map.SelectionHighlighters/>
+        <VASSAL.build.module.map.HighlightLastMoved color="255,0,0" enabled="true" thickness="2"/>
+        <VASSAL.build.module.map.DrawPile allowMultiple="true" allowSelect="true" canSave="false" color="0,0,0" countExpressions="" draw="false" drawFaceUp="false" emptyHotkey="" expressionCounting="false" faceDown="Never" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="4" name="Incredibles Roles" owningBoard="Incredibles" reshufflable="false" reshuffleCommand="" reshuffleHotkey="" reshuffleMessage="" reshuffleTarget="" reverseFormat="" reversible="true" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Always" shuffleFormat="" shuffleHotkey="" width="40" x="222" y="333">
+            <VASSAL.build.widget.CardSlot entryName="Mr. Incredible" gpid="785" height="0" width="0">+/null/immob;;N	piece;;;Role - Mr Incredible.JPG;Mr. Incredible/	null;0;0;785</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Elastigirl" gpid="786" height="0" width="0">+/null/immob;;N	piece;;;Role - Elastigirl.JPG;Elastigirl/	null;0;0;786</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Violet" gpid="787" height="0" width="0">+/null/immob;;N	piece;;;Role - Violet.JPG;Violet/	null;0;0;787</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Dash" gpid="788" height="0" width="0">+/null/immob;;N	piece;;;Role - Dash.JPG;Dash/	null;0;0;788</VASSAL.build.widget.CardSlot>
+        </VASSAL.build.module.map.DrawPile>
+        <VASSAL.build.module.map.Zoomer inButtonText="" inIconName="/images/zoomIn.gif" inTooltip="Zoom in" outButtonText="" outIconName="/images/zoomOut.gif" outTooltip="Zoom out" pickButtonText="" pickIconName="/images/zoom.png" pickTooltip="Select Zoom" zoomInKey="" zoomLevels="0.390625,0.625,1.0,1.6" zoomOutKey="" zoomPickKey="" zoomStart="3"/>
+        <VASSAL.build.module.map.DrawPile allowMultiple="true" allowSelect="true" canSave="false" color="0,0,0" countExpressions="" draw="false" drawFaceUp="true" emptyHotkey="" expressionCounting="false" faceDown="Always" faceDownFormat="" height="40" hotkeyOnEmpty="false" maxStack="5" name="Incredibles Special Events" owningBoard="Incredibles" reshufflable="false" reshuffleCommand="" reshuffleHotkey="" reshuffleMessage="" reshuffleTarget="" reverseFormat="" reversible="true" selectDisplayProperty="$BasicName$" selectSortProperty="" shuffle="Always" shuffleFormat="" shuffleHotkey="" width="40" x="675" y="333">
+            <VASSAL.build.widget.CardSlot entryName="Special Event - Deep Freeze" gpid="789" height="0" width="0">+/null/prototype;p	piece;;;Special Event - Deep Freeze.JPG;Special Event - Deep Freeze/	null;0;0;789</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Special Event - Family Comes Together" gpid="793" height="0" width="0">+/null/prototype;p	piece;;;Special Event - Family Comes Together.jpg;Special Event - Family Comes Together/	null;0;0;793</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Special Event - Frozen!" gpid="794" height="0" width="0">+/null/prototype;p	piece;;;Special Event - Frozen!.JPG;Special Event - Frozen!/	null;0;0;794</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Special Event - Jack Jack Attack!" gpid="795" height="0" width="0">+/null/prototype;p	piece;;;Special Event - Jack Jack Attack.JPG;Special Event - Jack Jack Attack!/	null;0;0;795</VASSAL.build.widget.CardSlot>
+            <VASSAL.build.widget.CardSlot entryName="Special Event - Supersuit Upgrade" gpid="796" height="0" width="0">+/null/prototype;p	piece;;;Special Event - Supersuit Upgrade.JPG;Special Event - Supersuit Upgrade/	null;0;0;796</VASSAL.build.widget.CardSlot>
+        </VASSAL.build.module.map.DrawPile>
+    </VASSAL.build.module.Map>
+    <VASSAL.build.module.NotesWindow buttonText="Notes" hotkey="" icon="/images/notes.gif" tooltip="Notes"/>
+</VASSAL.launch.BasicModule>
